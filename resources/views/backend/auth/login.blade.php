@@ -72,7 +72,9 @@
             <button type="submit" class="btn btn-dark customer-btn">LogIn as Customer</button>
             <br><br> -->
             <a href="{{ route('password.request') }}" class="forgot-pass">{{trans('file.Forgot Password?')}}</a>
+            <!--
             <p>{{trans('file.Do not have an account?')}}</p><a href="{{url('register')}}" class="signup">{{trans('file.Register')}}</a>
+            -->
           </div>
           <div class="copyrights text-center">
             <p>{{trans('file.Developed By')}} <span class="external">{{$general_setting->developed_by}}</span></p>
