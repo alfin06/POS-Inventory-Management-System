@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `billers` (
 
 -- Dumping data for table salespro.billers: ~0 rows (approximately)
 INSERT INTO `billers` (`id`, `name`, `image`, `company_name`, `vat_number`, `email`, `phone_number`, `address`, `city`, `state`, `postal_code`, `country`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Bùi Đức Toàn', NULL, 'AnToanHome', 'Toàn', 'hero70411@gmail.com', '0904422959', '58 Tố Hữu', 'Quận Nam Từ Liêm', 'Hà Nội', '12015', 'Vietnam', 1, '2022-07-31 12:39:20', '2022-07-31 12:39:20');
+	(1, 'Cashier', NULL, 'Mitra HPL Abadi', NULL, 'cashier@cashier.com', '12345678', 'Jalan', 'Kota', 'Provinsi', '123456', 'Indonesia', 1, '2022-07-31 12:39:20', '2023-02-13 16:01:17');
 
 -- Dumping structure for table salespro.brands
 CREATE TABLE IF NOT EXISTS `brands` (
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
 
 -- Dumping data for table salespro.customers: ~0 rows (approximately)
 INSERT INTO `customers` (`id`, `customer_group_id`, `user_id`, `name`, `company_name`, `email`, `phone_number`, `tax_no`, `address`, `city`, `state`, `postal_code`, `country`, `points`, `deposit`, `expense`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 1, NULL, 'Bùi Đức Toàn', 'AnToanHome', 'hero70411@gmail.com', '0904422959', NULL, '58 Tố Hữu', 'Quận Nam Từ Liêm', 'Hà Nội', '12015', 'Vietnam', 25, NULL, NULL, 1, '2022-07-31 12:17:35', '2022-07-31 15:34:32');
+	(1, 1, NULL, 'Budi', 'PT Suka Suka', NULL, '0812345678', NULL, 'Jalan', 'Kota', 'Provinsi', '12015', 'Indonesia', 25, NULL, NULL, 1, '2022-07-31 12:17:35', '2023-02-13 16:02:13');
 
 -- Dumping structure for table salespro.customer_groups
 CREATE TABLE IF NOT EXISTS `customer_groups` (
@@ -222,7 +222,7 @@ CREATE TABLE IF NOT EXISTS `customer_groups` (
 
 -- Dumping data for table salespro.customer_groups: ~0 rows (approximately)
 INSERT INTO `customer_groups` (`id`, `name`, `percentage`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Vip', '-10', 1, '2022-07-31 12:16:54', '2022-07-31 12:41:05');
+	(1, 'VIP', '0', 1, '2022-07-31 12:16:54', '2023-02-13 13:57:31');
 
 -- Dumping structure for table salespro.deliveries
 CREATE TABLE IF NOT EXISTS `deliveries` (
@@ -437,7 +437,7 @@ CREATE TABLE IF NOT EXISTS `general_settings` (
 
 -- Dumping data for table salespro.general_settings: ~0 rows (approximately)
 INSERT INTO `general_settings` (`id`, `site_title`, `site_logo`, `is_rtl`, `currency`, `staff_access`, `date_format`, `developed_by`, `invoice_format`, `state`, `theme`, `created_at`, `updated_at`, `currency_position`) VALUES
-	(1, 'Mitra HPL Abadi', '20220716010951.png', 0, '4', 'own', 'd-m-Y', 'Finicode', 'standard', 1, 'default.css', '2018-07-06 18:13:11', '2023-02-11 07:10:03', 'prefix');
+	(1, 'Mitra HPL Abadi', '20230213072424.png', 0, '4', 'own', 'd-m-Y', 'Finicode', 'standard', 1, 'default.css', '2018-07-06 18:13:11', '2023-02-13 12:24:24', 'prefix');
 
 -- Dumping structure for table salespro.gift_cards
 CREATE TABLE IF NOT EXISTS `gift_cards` (
@@ -805,7 +805,7 @@ CREATE TABLE IF NOT EXISTS `permissions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=124 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table salespro.permissions: ~120 rows (approximately)
 INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at`) VALUES
@@ -928,7 +928,9 @@ INSERT INTO `permissions` (`id`, `name`, `guard_name`, `created_at`, `updated_at
 	(120, 'sale-payment-delete', 'web', '2022-06-06 02:12:28', '2022-06-06 02:12:28'),
 	(121, 'all_notification', 'web', '2022-06-06 02:12:29', '2022-06-06 02:12:29'),
 	(122, 'sale-report-chart', 'web', '2022-06-06 02:12:29', '2022-06-06 02:12:29'),
-	(123, 'dso-report', 'web', '2022-06-06 02:12:29', '2022-06-06 02:12:29');
+	(123, 'dso-report', 'web', '2022-06-06 02:12:29', '2022-06-06 02:12:29'),
+	(124, 'supplier-due-report', 'web', '2023-02-13 15:38:38', '2023-02-13 15:38:38'),
+	(125, 'product_history', 'web', '2023-02-13 15:43:13', '2023-02-13 15:43:13');
 
 -- Dumping structure for table salespro.pos_setting
 CREATE TABLE IF NOT EXISTS `pos_setting` (
@@ -1351,7 +1353,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
 -- Dumping data for table salespro.roles: ~4 rows (approximately)
 INSERT INTO `roles` (`id`, `name`, `description`, `guard_name`, `is_active`, `created_at`, `updated_at`) VALUES
 	(1, 'Admin', 'admin can access all data...', 'web', 1, '2018-06-02 11:46:44', '2022-07-31 09:19:24'),
-	(2, 'Owner', 'Staff of shop', 'web', 1, '2018-10-22 14:38:13', '2022-07-31 09:19:37'),
+	(2, 'Owner', 'Owner of the store', 'web', 1, '2018-10-22 14:38:13', '2023-02-13 15:47:57'),
 	(4, 'staff', 'staff has specific acess...', 'web', 1, '2018-06-02 12:05:27', '2022-07-31 09:20:13'),
 	(5, 'Customer', NULL, 'web', 1, '2020-11-05 18:43:16', '2022-07-31 09:20:01');
 
@@ -1365,7 +1367,7 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.role_has_permissions: ~241 rows (approximately)
+-- Dumping data for table salespro.role_has_permissions: ~202 rows (approximately)
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(4, 1),
 	(4, 2),
@@ -1379,54 +1381,30 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(7, 2),
 	(7, 4),
 	(8, 1),
-	(8, 2),
 	(8, 4),
 	(9, 1),
-	(9, 2),
 	(9, 4),
 	(10, 1),
-	(10, 2),
 	(11, 1),
-	(11, 2),
 	(12, 1),
-	(12, 2),
 	(12, 4),
 	(13, 1),
-	(13, 2),
 	(13, 4),
 	(14, 1),
-	(14, 2),
+	(14, 4),
 	(15, 1),
-	(15, 2),
 	(16, 1),
-	(16, 2),
 	(17, 1),
-	(17, 2),
 	(18, 1),
-	(18, 2),
 	(19, 1),
-	(19, 2),
 	(20, 1),
-	(20, 2),
-	(20, 4),
 	(21, 1),
-	(21, 2),
-	(21, 4),
 	(22, 1),
-	(22, 2),
-	(22, 4),
 	(23, 1),
-	(23, 2),
 	(24, 1),
-	(24, 2),
-	(24, 4),
 	(25, 1),
-	(25, 2),
-	(25, 4),
 	(26, 1),
-	(26, 2),
 	(27, 1),
-	(27, 2),
 	(28, 1),
 	(28, 2),
 	(28, 4),
@@ -1435,26 +1413,27 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(29, 4),
 	(30, 1),
 	(30, 2),
+	(30, 4),
 	(31, 1),
 	(31, 2),
 	(32, 1),
 	(32, 2),
+	(32, 4),
 	(33, 1),
 	(33, 2),
+	(33, 4),
 	(34, 1),
 	(34, 2),
+	(34, 4),
 	(35, 1),
 	(35, 2),
 	(36, 1),
 	(36, 2),
 	(37, 1),
-	(37, 2),
 	(38, 1),
 	(38, 2),
 	(39, 1),
-	(39, 2),
 	(40, 1),
-	(40, 2),
 	(41, 1),
 	(41, 2),
 	(42, 1),
@@ -1466,86 +1445,49 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(45, 1),
 	(45, 2),
 	(46, 1),
-	(46, 2),
 	(47, 1),
-	(47, 2),
 	(48, 1),
 	(48, 2),
 	(49, 1),
-	(49, 2),
 	(50, 1),
-	(50, 2),
 	(51, 1),
-	(51, 2),
 	(52, 1),
 	(52, 2),
 	(53, 1),
 	(53, 2),
 	(54, 1),
-	(54, 2),
 	(55, 1),
-	(55, 2),
-	(55, 4),
 	(56, 1),
-	(56, 2),
-	(56, 4),
 	(57, 1),
-	(57, 2),
-	(57, 4),
 	(58, 1),
-	(58, 2),
 	(59, 1),
 	(59, 2),
 	(60, 1),
-	(60, 2),
 	(61, 1),
-	(61, 2),
+	(61, 4),
 	(62, 1),
-	(62, 2),
 	(63, 1),
-	(63, 2),
-	(63, 4),
 	(64, 1),
-	(64, 2),
-	(64, 4),
 	(65, 1),
-	(65, 2),
 	(66, 1),
-	(66, 2),
 	(67, 1),
-	(67, 2),
 	(68, 1),
-	(68, 2),
 	(69, 1),
-	(69, 2),
 	(70, 1),
-	(70, 2),
 	(71, 1),
-	(71, 2),
 	(72, 1),
-	(72, 2),
 	(73, 1),
-	(73, 2),
 	(74, 1),
-	(74, 2),
 	(75, 1),
-	(75, 2),
 	(76, 1),
-	(76, 2),
 	(77, 1),
-	(77, 2),
 	(78, 1),
 	(78, 2),
 	(79, 1),
-	(79, 2),
 	(80, 1),
-	(80, 2),
 	(81, 1),
-	(81, 2),
 	(82, 1),
-	(82, 2),
 	(83, 1),
-	(83, 2),
 	(84, 1),
 	(84, 2),
 	(85, 1),
@@ -1553,47 +1495,34 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(86, 1),
 	(86, 2),
 	(87, 1),
-	(87, 2),
 	(88, 1),
-	(88, 2),
 	(89, 1),
-	(89, 2),
 	(90, 1),
-	(90, 2),
 	(91, 1),
-	(91, 2),
 	(92, 1),
 	(92, 2),
 	(93, 1),
-	(93, 2),
 	(94, 1),
-	(94, 2),
 	(95, 1),
-	(95, 2),
 	(96, 1),
-	(96, 2),
 	(97, 1),
-	(97, 2),
 	(98, 1),
 	(98, 2),
 	(99, 1),
-	(99, 2),
 	(100, 1),
-	(100, 2),
 	(101, 1),
-	(101, 2),
 	(102, 1),
-	(102, 2),
 	(103, 1),
-	(103, 2),
 	(104, 1),
-	(104, 2),
 	(105, 1),
-	(105, 2),
 	(106, 1),
+	(106, 2),
 	(107, 1),
+	(107, 2),
 	(108, 1),
+	(108, 2),
 	(109, 1),
+	(109, 2),
 	(110, 1),
 	(111, 1),
 	(112, 1),
@@ -1607,7 +1536,9 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(120, 1),
 	(121, 1),
 	(122, 1),
-	(123, 1);
+	(123, 1),
+	(124, 1),
+	(125, 1);
 
 -- Dumping structure for table salespro.sales
 CREATE TABLE IF NOT EXISTS `sales` (
@@ -1702,9 +1633,11 @@ CREATE TABLE IF NOT EXISTS `taxes` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table salespro.taxes: ~0 rows (approximately)
+INSERT INTO `taxes` (`id`, `name`, `rate`, `is_active`, `created_at`, `updated_at`) VALUES
+	(1, 'Pajak (11%)', 11, 1, '2023-02-13 13:14:46', '2023-02-13 13:14:46');
 
 -- Dumping structure for table salespro.transfers
 CREATE TABLE IF NOT EXISTS `transfers` (
@@ -1745,7 +1678,7 @@ CREATE TABLE IF NOT EXISTS `units` (
 
 -- Dumping data for table salespro.units: ~0 rows (approximately)
 INSERT INTO `units` (`id`, `unit_code`, `unit_name`, `base_unit`, `operator`, `operation_value`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Pcs', 'Cái', NULL, '*', 1, 1, '2022-07-31 12:15:05', '2022-07-31 12:15:05');
+	(1, 'Pcs', 'Pcs', NULL, '*', 1, 1, '2022-07-31 12:15:05', '2023-02-13 13:14:08');
 
 -- Dumping structure for table salespro.users
 CREATE TABLE IF NOT EXISTS `users` (
@@ -1764,24 +1697,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.users: ~14 rows (approximately)
+-- Dumping data for table salespro.users: ~2 rows (approximately)
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `phone`, `company_name`, `role_id`, `biller_id`, `warehouse_id`, `is_active`, `is_deleted`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', 'admin@admin.com', '$2y$10$DWAHTfjcvwCpOCXaJg11MOhsqns03uvlwiSUOQwkHL2YYrtrXPcL6', 'axhrg9Oanri54uDt7xd60kI8OCNr3VhQ6fJrt4LoU4HSNbuiETnClY9KkLe5', '5364377', 'nulled', 1, NULL, NULL, 1, 0, '2018-06-02 15:24:15', '2022-07-16 08:38:25'),
-	(3, 'dhiman da', 'dhiman@gmail.com', '$2y$10$Fef6vu5E67nm11hX7V5a2u1ThNCQ6n9DRCvRF9TD7stk.Pmt2R6O.', '5ehQM6JIfiQfROgTbB5let0Z93vjLHS7rd9QD5RPNgOxli3xdo7fykU7vtTt', '212', 'lioncoders', 1, 0, 0, 0, 1, '2018-06-14 10:00:31', '2020-11-05 19:06:51'),
-	(6, 'test', 'test@gmail.com', '$2y$10$TDAeHcVqHyCmurki0wjLZeIl1SngKX3WLOhyTiCoZG3souQfqv.LS', 'KpW1gYYlOFacumklO2IcRfSsbC3KcWUZzOI37gqoqM388Xie6KdhaOHIFEYm', '1234', '212312', 4, 0, 0, 0, 1, '2018-06-23 15:05:33', '2018-06-23 15:13:45'),
-	(8, 'test', 'test@yahoo.com', '$2y$10$hlMigidZV0j2/IPkgE/xsOSb8WM2IRlsMv.1hg1NM7kfyd6bGX3hC', '', '31231', '', 4, 0, 0, 0, 1, '2018-06-25 10:35:49', '2018-07-02 13:07:39'),
-	(9, 'staff', 'anda@gmail.com', '$2y$10$kxDbnynB6mB1e1w3pmtbSOlSxy/WwbLPY5TJpMi0Opao5ezfuQjQm', 'HUYdFDsg2g1SEUNKVp70hF9RhpiPGEcglq3uk02sjG92M04QacNeV2oWneEZ', '3123', '', 4, 5, 1, 0, 1, '2018-07-02 13:08:08', '2022-07-16 08:37:08'),
-	(10, 'abul', 'abul@alpha.com', '$2y$10$5zgB2OOMyNBNVAd.QOQIju5a9fhNnTqPx5H6s4oFlXhNiF6kXEsPq', 'x7HlttI5bM0vSKViqATaowHFJkLS3PHwfvl7iJdFl5Z1SsyUgWCVbLSgAoi0', '1234', 'anda', 1, 0, 0, 0, 1, '2018-09-08 11:44:48', '2022-07-16 08:35:32'),
-	(11, 'teststaff', 'a@a.com', '$2y$10$5KNBIIhZzvvZEQEhkHaZGu.Q8bbQNfqYvYgL5N55B8Pb4P5P/b/Li', 'DkHDEcCA0QLfsKPkUK0ckL0CPM6dPiJytNa0k952gyTbeAyMthW3vi7IRitp', '111', 'aa', 4, 5, 1, 0, 1, '2018-10-22 14:47:56', '2018-10-23 14:10:56'),
-	(12, 'john', 'john@gmail.com', '$2y$10$P/pN2J/uyTYNzQy2kRqWwuSv7P2f6GE/ykBwtHdda7yci3XsfOKWe', 'O0f1WJBVjT5eKYl3Js5l1ixMMtoU6kqrH7hbHDx9I1UCcD9CmiSmCBzHbQZg', '10001', '', 4, 2, 2, 0, 1, '2018-12-30 12:48:37', '2019-03-06 16:59:49'),
-	(13, 'jjj', 'test@test.com', '$2y$10$/Qx3gHWYWUhlF1aPfzXaCeZA7fRzfSEyCIOnk/dcC4ejO8PsoaalG', '', '1213', '', 1, 0, 0, 0, 1, '2019-01-03 12:08:31', '2019-03-03 16:02:29'),
-	(19, 'shakalaka', 'shakalaka@gmail.com', '$2y$10$ketLWT0Ib/JXpo00eJlxoeSw.7leS8V1CUGInfbyOWT4F5.Xuo7S2', '', '1212', 'Digital image', 5, 0, 0, 0, 1, '2020-11-09 12:07:16', '2022-07-16 08:35:32'),
-	(21, 'modon', 'modon@gmail.com', '$2y$10$7VpoeGMkP8QCvL5zLwFW..6MYJ5MRumDLDoX.TTQtClS561rpFHY.', '', '2222', 'modon company', 5, 0, 0, 0, 1, '2020-11-13 19:12:08', '2022-07-16 08:35:32'),
-	(22, 'dhiman', 'dhiman@gmail.com', '$2y$10$3mPygsC6wwnDtw/Sg85IpuExtUhgaHx52Lwp7Rz0.FNfuFdfKVpRq', '', '+8801111111101', 'lioncoders', 5, 0, 0, 0, 1, '2020-11-15 18:14:58', '2022-07-16 08:35:32'),
-	(31, 'mbs', 'mbs@gmail.com', '$2y$10$6Ldm1rWEVSrlTmpjIXkeQO9KwWJz/j0FB4U.fY1oCFeax47rvttEK', '', '2121', '', 4, 1, 2, 0, 1, '2021-12-29 18:40:22', '2022-07-16 08:35:32'),
-	(36, 'Manuel S', 'msolis@mango.com.gt', '$2y$10$YfM/LdEtAN08hoVXiaRRZO.0Wf.fBn0wRnaCSczc50s3bR.7xFliu', NULL, '53664377', NULL, 1, NULL, NULL, 1, 0, '2022-07-16 07:48:37', '2022-07-16 07:48:37');
+	(1, 'admin', 'admin@admin.com', '$2y$10$DWAHTfjcvwCpOCXaJg11MOhsqns03uvlwiSUOQwkHL2YYrtrXPcL6', '8dyDT2vfPnzNoHfV5DNbFDh1NCFqYXOI8zGqMeImXFIVF1JKQAl1HEInnmF6', '5364377', NULL, 1, NULL, NULL, 1, 0, '2018-06-02 15:24:15', '2023-02-13 13:55:27'),
+	(37, 'owner', 'owner@owner.com', '$2y$10$KULNwN7eg/FjjINi/FbpReE.m9lpbcCmtTMmb5zeP3oSjt1AxZBUK', NULL, '12345678', NULL, 2, NULL, NULL, 1, 0, '2023-02-12 14:53:20', '2023-02-12 14:53:20'),
+	(38, 'staff', 'staff@staff.com', '$2y$10$.M9XgAsww8HWFJeKzTeEgetpD7FTlmCWCfAHiwcswGAm.y08nk016', NULL, '1234567', NULL, 4, 1, 1, 1, 0, '2023-02-13 16:04:31', '2023-02-13 16:04:31');
 
 -- Dumping structure for table salespro.variants
 CREATE TABLE IF NOT EXISTS `variants` (
@@ -1809,7 +1731,7 @@ CREATE TABLE IF NOT EXISTS `warehouses` (
 
 -- Dumping data for table salespro.warehouses: ~0 rows (approximately)
 INSERT INTO `warehouses` (`id`, `name`, `phone`, `email`, `address`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Kho Ecolife', '0904422959', 'hero70411@gmail.com', '58 Tố Hữu', 1, '2022-07-31 12:14:05', '2022-07-31 12:14:05');
+	(1, 'Mitra HPL Abadi', '123456789', 'mitra@mitra.com', 'jalan', 1, '2022-07-31 12:14:05', '2023-02-12 15:31:20');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

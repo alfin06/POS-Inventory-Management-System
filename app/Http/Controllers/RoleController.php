@@ -533,6 +533,15 @@ class RoleController extends Controller
         else
             $role->revokePermissionTo('department');
 
+        if($request->has('holiday')){
+            $permission = Permission::firstOrCreate(['name' => 'holiday']);
+            if(!$role->hasPermissionTo('holiday')){
+                $role->givePermissionTo($permission);
+            }
+        }
+        else
+            $role->revokePermissionTo('holiday');
+
         if($request->has('attendance')){
             $permission = Permission::firstOrCreate(['name' => 'attendance']);
             if(!$role->hasPermissionTo('attendance')){
@@ -731,6 +740,7 @@ class RoleController extends Controller
         else
             $role->revokePermissionTo('suppliers-delete');
 
+        // Reports
         if($request->has('profit-loss')){
             $permission = Permission::firstOrCreate(['name' => 'profit-loss']);
             if(!$role->hasPermissionTo('profit-loss')){
@@ -1118,14 +1128,6 @@ class RoleController extends Controller
         else
             $role->revokePermissionTo('coupon');
 
-        if($request->has('holiday')){
-            $permission = Permission::firstOrCreate(['name' => 'holiday']);
-            if(!$role->hasPermissionTo('holiday')){
-                $role->givePermissionTo($permission);
-            }
-        }
-        else
-            $role->revokePermissionTo('holiday');
 
         if($request->has('category')){
             $permission = Permission::firstOrCreate(['name' => 'category']);

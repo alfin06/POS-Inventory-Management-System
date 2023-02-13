@@ -481,7 +481,7 @@
                     ])->first();
             ?>
 
-            @if(Auth::user()->role_id != 5)
+            @if(Auth::user()->role_id == 1)
             <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a>
             <ul id="hrm" class="collapse list-unstyled ">
                 @if($department_active)
@@ -1002,7 +1002,7 @@
                                 ['role_id', $role->id]
                         ])->first();
                     ?>
-                    @if($role->id <= 2)
+                    @if($role->id < 2)
                     <li id="role-menu"><a href="{{route('role.index')}}">{{trans('file.Role Permission')}}</a></li>
                     @endif
                     @if($discount_plan_permission_active)
@@ -1206,10 +1206,12 @@
                     <a href="{{route('setting.general')}}"><i class="dripicons-gear"></i> {{trans('file.settings')}}</a>
                     </li>
                     @endif
+                    @if(Auth::user()->role_id == 1)
                     <li>
                     <a href="{{url('my-transactions/'.date('Y').'/'.date('m'))}}"><i class="dripicons-swap"></i> {{trans('file.My Transaction')}}</a>
                     </li>
-                    @if(Auth::user()->role_id != 5)
+                    @endif
+                    @if(Auth::user()->role_id == 1)
                     <li>
                     <a href="{{url('holidays/my-holiday/'.date('Y').'/'.date('m'))}}"><i class="dripicons-vibrate"></i> {{trans('file.My Holiday')}}</a>
                     </li>

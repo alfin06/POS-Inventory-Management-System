@@ -12,6 +12,7 @@
                         <h4>{{trans('file.Group Permission')}}</h4>
                     </div>
                     {!! Form::open(['route' => 'role.setPermission', 'method' => 'post']) !!}
+					{{ csrf_field() }}
                     <div class="card-body">
                     	<input type="hidden" name="role_id" value="{{$lims_role_data->id}}" />
 						<div class="table-responsive">
