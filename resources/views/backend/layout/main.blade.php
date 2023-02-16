@@ -1144,7 +1144,7 @@
                         <li>
                         <a href="{{ url('language_switch/en') }}" class="btn btn-link"> English</a>
                         </li>
-                        <li>
+                        <!-- <li>
                         <a href="{{ url('language_switch/es') }}" class="btn btn-link"> Español</a>
                         </li>
                         <li>
@@ -1164,11 +1164,11 @@
                         </li>
                         <li>
                         <a href="{{ url('language_switch/de') }}" class="btn btn-link"> Deutsche</a>
-                        </li>
+                        </li> -->
                         <li>
-                        <a href="{{ url('language_switch/id') }}" class="btn btn-link"> Malay</a>
+                        <a href="{{ url('language_switch/id') }}" class="btn btn-link"> Indonesia</a>
                         </li>
-                        <li>
+                        <!-- <li>
                         <a href="{{ url('language_switch/hi') }}" class="btn btn-link"> हिंदी</a>
                         </li>
                         <li>
@@ -1191,7 +1191,7 @@
                         </li>
                         <li>
                         <a href="{{ url('language_switch/lao') }}" class="btn btn-link"> Lao</a>
-                        </li>
+                        </li> -->
                     </ul>
             </li>
             <li class="nav-item">

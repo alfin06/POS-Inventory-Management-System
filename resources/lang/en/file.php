@@ -113,7 +113,7 @@ return [
 	'Company Name' => 'Company Name',
 	'Phone Number' => 'Phone Number',
 	'Role' => 'Role',
-	'UserName' => 'UserName',
+	'UserName' => 'Username',
 	'Password' => 'Password',
 	'LogIn' => 'LogIn',
 	'Change Password' => 'Change Password',
