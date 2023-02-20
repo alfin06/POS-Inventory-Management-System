@@ -1089,7 +1089,8 @@
                 ])->first();
             ?>
             @if($sale_add_permission_active)
-            <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="{{route('sale.pos')}}"><i class="dripicons-shopping-bag"></i><span> POS</span></a></li>
+            <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="{{route('sale.pos')}}"><i class="dripicons-shopping-bag"></i><span> CV. HPL Indonesia</span></a></li>
+            <li class="nav-item"><a class="dropdown-item btn-pos btn-sm" href="{{route('sale.pos2')}}"><i class="dripicons-shopping-bag"></i><span> Berkat Funiture</span></a></li>
             @endif
             <li class="nav-item"><a id="switch-theme" data-toggle="tooltip" title="{{trans('file.Switch Theme')}}"><i class="dripicons-brightness-max"></i></a></li>
             <li class="nav-item"><a id="btnFullscreen" data-toggle="tooltip" title="{{trans('file.Full Screen')}}"><i class="dripicons-expand"></i></a></li>
@@ -1590,7 +1591,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12">
-              <p>&copy; {{$general_setting->site_title}} | {{trans('file.Developed')}} {{trans('file.By')}} <span class="external">{{$general_setting->developed_by}}</span> | V 3.8</p>
+              <p>&copy; {{$general_setting->site_title}} | {{trans('file.Developed')}} {{trans('file.By')}} <span class="external">{{$general_setting->developed_by}}</span> | Version 1.0</p>
             </div>
           </div>
         </div>

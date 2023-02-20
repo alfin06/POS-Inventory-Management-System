@@ -110,6 +110,7 @@ Route::group(['middleware' => ['common', 'auth', 'active']], function() {
 	Route::get('sales/product_sale/{id}','SaleController@productSaleData');
 	Route::post('importsale', 'SaleController@importSale')->name('sale.import');
 	Route::get('pos', 'SaleController@posSale')->name('sale.pos');
+	Route::get('pos2', 'SaleController@posSale2')->name('sale.pos2');
 	Route::get('sales/lims_sale_search', 'SaleController@limsSaleSearch')->name('sale.search');
 	Route::get('sales/lims_product_search', 'SaleController@limsProductSearch')->name('product_sale.search');
 	Route::get('sales/getcustomergroup/{id}', 'SaleController@getCustomerGroup')->name('sale.getcustomergroup');

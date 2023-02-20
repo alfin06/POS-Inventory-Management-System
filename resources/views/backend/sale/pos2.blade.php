@@ -851,17 +851,17 @@
                                 ['role_id', \Auth::user()->role_id] ])->first();
                         @endphp
                         <div class="row">
-                            <h6>CV. HPL Indonesia</h6>
+                            <h6>Berkat Furniture</h6>
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="created_at" class="form-control date" placeholder="Pilih tanggal" onkeyup='saveValue(this);'/>
+                                          <input type="text" name="created_at" class="form-control date" placeholder="Choose date" onkeyup='saveValue(this);'/>
                                       </div>
                                     </div>
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" onkeyup='saveValue(this);'/>
+                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Type reference number" onkeyup='saveValue(this);'/>
                                       </div>
                                       @if($errors->has('reference_no'))
                                        <span>
@@ -1042,12 +1042,12 @@
                         <div class="column-5">
                             <button style="background-color: #e28d02" type="button" class="btn btn-custom" id="draft-btn"><i class="dripicons-flag"></i> {{trans('file.Draft')}}</button>
                         </div>
-                        <!-- <div class="column-5">
+                        <div class="column-5">
                             <button style="background-color: #fd7272" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{trans('file.Cheque')}}</button>
-                        </div> -->
-                        <!-- <div class="column-5">
+                        </div>
+                        <div class="column-5">
                             <button style="background-color: #5f27cd" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="gift-card-btn"><i class="fa fa-credit-card-alt"></i> {{trans('file.Gift Card')}}</button>
-                        </div> -->
+                        </div>
                         <div class="column-5">
                             <button style="background-color: #b33771" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="deposit-btn"><i class="fa fa-university"></i> {{trans('file.Deposit')}}</button>
                         </div>

@@ -1115,6 +1115,70 @@ class SaleController extends Controller
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
     }
 
+    public function posSale2()
+    {
+        $role = Role::find(Auth::user()->role_id);
+        if($role->hasPermissionTo('sales-add')){
+            $permissions = Role::findByName($role->name)->permissions;
+            foreach ($permissions as $permission)
+                $all_permission[] = $permission->name;
+            if(empty($all_permission))
+                $all_permission[] = 'dummy text';
+
+            $lims_customer_list = Customer::where('is_active', true)->get();
+            $lims_customer_group_all = CustomerGroup::where('is_active', true)->get();
+            $lims_warehouse_list = Warehouse::where('is_active', true)->get();
+            $lims_biller_list = Biller::where('is_active', true)->get();
+            $lims_reward_point_setting_data = RewardPointSetting::latest()->first();
+            $lims_tax_list = Tax::where('is_active', true)->get();
+            $lims_product_list = Product::select('id', 'name', 'code', 'image')->ActiveFeatured()->whereNull('is_variant')->get();
+            foreach ($lims_product_list as $key => $product) {
+                $images = explode(",", $product->image);
+                $product->base_image = $images[0];
+            }
+            $lims_product_list_with_variant = Product::select('id', 'name', 'code', 'image')->ActiveFeatured()->whereNotNull('is_variant')->get();
+
+            foreach ($lims_product_list_with_variant as $product) {
+                $images = explode(",", $product->image);
+                $product->base_image = $images[0];
+                $lims_product_variant_data = $product->variant()->orderBy('position')->get();
+                $main_name = $product->name;
+                $temp_arr = [];
+                foreach ($lims_product_variant_data as $key => $variant) {
+                    $product->name = $main_name.' ['.$variant->name.']';
+                    $product->code = $variant->pivot['item_code'];
+                    $lims_product_list[] = clone($product);
+                }
+            }
+            
+            $product_number = count($lims_product_list);
+            $lims_pos_setting_data = PosSetting::latest()->first();
+            $lims_brand_list = Brand::where('is_active',true)->get();
+            $lims_category_list = Category::where('is_active',true)->get();
+            
+            if(Auth::user()->role_id > 2 && config('staff_access') == 'own') {
+                $recent_sale = Sale::where([
+                    ['sale_status', 1],
+                    ['user_id', Auth::id()]
+                ])->orderBy('id', 'desc')->take(10)->get();
+                $recent_draft = Sale::where([
+                    ['sale_status', 3],
+                    ['user_id', Auth::id()]
+                ])->orderBy('id', 'desc')->take(10)->get();
+            }
+            else {
+                $recent_sale = Sale::where('sale_status', 1)->orderBy('id', 'desc')->take(10)->get();
+                $recent_draft = Sale::where('sale_status', 3)->orderBy('id', 'desc')->take(10)->get();
+            }
+            $lims_coupon_list = Coupon::where('is_active',true)->get();
+            $flag = 0;
+
+            return view('backend.sale.pos2', compact('all_permission', 'lims_customer_list', 'lims_customer_group_all', 'lims_warehouse_list', 'lims_reward_point_setting_data', 'lims_product_list', 'product_number', 'lims_tax_list', 'lims_biller_list', 'lims_pos_setting_data', 'lims_brand_list', 'lims_category_list', 'recent_sale', 'recent_draft', 'lims_coupon_list', 'flag'));
+        }
+        else
+            return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
+    }
+
     public function getProductByFilter($category_id, $brand_id)
     {
         $data = [];
