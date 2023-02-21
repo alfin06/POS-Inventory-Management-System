@@ -34,13 +34,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.accounts: ~5 rows (approximately)
-INSERT INTO `accounts` (`id`, `account_no`, `name`, `initial_balance`, `total_balance`, `note`, `is_default`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, '11111', 'Sales Account', 1000, 1000, 'this is first account', 0, 0, '2018-12-18 14:58:02', '2022-07-16 07:53:55'),
-	(3, '21211', 'Sa', 0, 0, '', 0, 0, '2018-12-18 14:58:56', '2022-07-16 07:54:06'),
-	(5, '67665677', 'Ventas', 1000, 1000, NULL, 1, 1, '2022-07-16 07:53:28', '2022-07-16 07:53:44'),
-	(6, '76344547', 'Compras', 1000, 1000, NULL, NULL, 1, '2022-07-16 07:54:36', '2022-07-16 07:54:36'),
-	(7, '696577665', 'Gastos', 1000, 1000, NULL, NULL, 1, '2022-07-16 07:54:55', '2022-07-16 07:54:55');
+-- Dumping data for table salespro.accounts: ~0 rows (approximately)
 
 -- Dumping structure for table salespro.adjustments
 CREATE TABLE IF NOT EXISTS `adjustments` (
@@ -114,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `brands` (
 
 -- Dumping data for table salespro.brands: ~0 rows (approximately)
 INSERT INTO `brands` (`id`, `title`, `image`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Apple', '20220731114103.jpg', 1, '2022-07-31 12:14:43', '2022-07-31 16:41:03');
+	(1, 'Avian', '20220731114103.jpg', 1, '2022-07-31 12:14:43', '2023-02-16 16:00:24');
 
 -- Dumping structure for table salespro.cash_registers
 CREATE TABLE IF NOT EXISTS `cash_registers` (
@@ -126,9 +120,12 @@ CREATE TABLE IF NOT EXISTS `cash_registers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.cash_registers: ~0 rows (approximately)
+-- Dumping data for table salespro.cash_registers: ~2 rows (approximately)
+INSERT INTO `cash_registers` (`id`, `cash_in_hand`, `user_id`, `warehouse_id`, `status`, `created_at`, `updated_at`) VALUES
+	(1, 100000, 1, 1, 0, '2023-02-14 15:29:31', '2023-02-14 15:30:06'),
+	(2, 500000, 38, 1, 0, '2023-02-20 14:46:34', '2023-02-21 15:35:42');
 
 -- Dumping structure for table salespro.categories
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -140,11 +137,12 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.categories: ~0 rows (approximately)
+-- Dumping data for table salespro.categories: ~2 rows (approximately)
 INSERT INTO `categories` (`id`, `name`, `image`, `parent_id`, `is_active`, `created_at`, `updated_at`) VALUES
-	(1, 'Mobile', '20220731114240.jpg', NULL, 1, '2022-07-31 12:15:28', '2022-07-31 16:42:40');
+	(1, 'Cat', '20220731114240.jpg', NULL, 1, '2022-07-31 12:15:28', '2023-02-16 15:56:35'),
+	(2, 'Baja', NULL, NULL, 1, '2023-02-16 15:57:12', '2023-02-16 15:57:12');
 
 -- Dumping structure for table salespro.coupons
 CREATE TABLE IF NOT EXISTS `coupons` (
@@ -513,6 +511,21 @@ CREATE TABLE IF NOT EXISTS `languages` (
 -- Dumping data for table salespro.languages: ~0 rows (approximately)
 INSERT INTO `languages` (`id`, `code`, `created_at`, `updated_at`) VALUES
 	(1, 'en', '2018-07-08 10:59:17', '2019-12-25 05:34:20');
+
+-- Dumping structure for table salespro.last_number
+CREATE TABLE IF NOT EXISTS `last_number` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice_type` varchar(18) DEFAULT NULL,
+  `invoice_month` tinyint(2) DEFAULT NULL,
+  `invoice_number` int(11) DEFAULT NULL,
+  `updated_at` datetime DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+-- Dumping data for table salespro.last_number: ~2 rows (approximately)
+INSERT INTO `last_number` (`id`, `invoice_type`, `invoice_month`, `invoice_number`, `updated_at`) VALUES
+	(1, 'CV. HPL Indonesia', 1, 1, '2023-02-21 22:22:03'),
+	(2, 'Berkat Furniture', 1, 1, '2023-02-21 22:22:03');
 
 -- Dumping structure for table salespro.migrations
 CREATE TABLE IF NOT EXISTS `migrations` (
@@ -949,7 +962,7 @@ CREATE TABLE IF NOT EXISTS `pos_setting` (
 
 -- Dumping data for table salespro.pos_setting: ~1 rows (approximately)
 INSERT INTO `pos_setting` (`id`, `customer_id`, `warehouse_id`, `biller_id`, `product_number`, `keybord_active`, `stripe_public_key`, `stripe_secret_key`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, 1, 4, 0, 'pk_test_ITN7KOYiIsHSCQ0UMRcgaYUB', 'sk_test_TtQQaawhEYRwa3mU9CzttrEy', '2018-09-02 15:17:04', '2022-07-16 08:48:25');
+	(1, 1, 1, 1, 4, 0, 'pk_test_ITN7KOYiIsHSCQ0UMRcgaYUB', 'sk_test_TtQQaawhEYRwa3mU9CzttrEy', '2018-09-02 15:17:04', '2023-02-20 15:41:10');
 
 -- Dumping structure for table salespro.products
 CREATE TABLE IF NOT EXISTS `products` (
@@ -1367,7 +1380,7 @@ CREATE TABLE IF NOT EXISTS `role_has_permissions` (
   CONSTRAINT `role_has_permissions_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.role_has_permissions: ~202 rows (approximately)
+-- Dumping data for table salespro.role_has_permissions: ~168 rows (approximately)
 INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(4, 1),
 	(4, 2),
@@ -1381,16 +1394,17 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(7, 2),
 	(7, 4),
 	(8, 1),
-	(8, 4),
 	(9, 1),
-	(9, 4),
 	(10, 1),
 	(11, 1),
 	(12, 1),
+	(12, 2),
 	(12, 4),
 	(13, 1),
+	(13, 2),
 	(13, 4),
 	(14, 1),
+	(14, 2),
 	(14, 4),
 	(15, 1),
 	(16, 1),
@@ -1464,7 +1478,6 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(59, 2),
 	(60, 1),
 	(61, 1),
-	(61, 4),
 	(62, 1),
 	(63, 1),
 	(64, 1),
@@ -1518,11 +1531,9 @@ INSERT INTO `role_has_permissions` (`permission_id`, `role_id`) VALUES
 	(106, 1),
 	(106, 2),
 	(107, 1),
-	(107, 2),
 	(108, 1),
 	(108, 2),
 	(109, 1),
-	(109, 2),
 	(110, 1),
 	(111, 1),
 	(112, 1),
@@ -1596,9 +1607,11 @@ CREATE TABLE IF NOT EXISTS `stock_counts` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table salespro.stock_counts: ~0 rows (approximately)
+INSERT INTO `stock_counts` (`id`, `reference_no`, `warehouse_id`, `category_id`, `brand_id`, `user_id`, `type`, `initial_file`, `final_file`, `note`, `is_adjusted`, `created_at`, `updated_at`) VALUES
+	(1, 'scr-20230216-105737', 1, NULL, NULL, 37, 'full', '20230216-105737.csv', NULL, NULL, 0, '2023-02-16 15:57:37', '2023-02-16 15:57:37');
 
 -- Dumping structure for table salespro.suppliers
 CREATE TABLE IF NOT EXISTS `suppliers` (
@@ -1699,9 +1712,9 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table salespro.users: ~2 rows (approximately)
+-- Dumping data for table salespro.users: ~3 rows (approximately)
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `remember_token`, `phone`, `company_name`, `role_id`, `biller_id`, `warehouse_id`, `is_active`, `is_deleted`, `created_at`, `updated_at`) VALUES
-	(1, 'admin', 'admin@admin.com', '$2y$10$DWAHTfjcvwCpOCXaJg11MOhsqns03uvlwiSUOQwkHL2YYrtrXPcL6', '8dyDT2vfPnzNoHfV5DNbFDh1NCFqYXOI8zGqMeImXFIVF1JKQAl1HEInnmF6', '5364377', NULL, 1, NULL, NULL, 1, 0, '2018-06-02 15:24:15', '2023-02-13 13:55:27'),
+	(1, 'admin', 'admin@admin.com', '$2y$10$DWAHTfjcvwCpOCXaJg11MOhsqns03uvlwiSUOQwkHL2YYrtrXPcL6', 'IJTQIkTWwss6sqpY8cRyUTvVIUJhdSRwTBlBipivxBYKEGSSIVtiBErDL1ok', '5364377', NULL, 1, NULL, NULL, 1, 0, '2018-06-02 15:24:15', '2023-02-13 13:55:27'),
 	(37, 'owner', 'owner@owner.com', '$2y$10$KULNwN7eg/FjjINi/FbpReE.m9lpbcCmtTMmb5zeP3oSjt1AxZBUK', NULL, '12345678', NULL, 2, NULL, NULL, 1, 0, '2023-02-12 14:53:20', '2023-02-12 14:53:20'),
 	(38, 'staff', 'staff@staff.com', '$2y$10$.M9XgAsww8HWFJeKzTeEgetpD7FTlmCWCfAHiwcswGAm.y08nk016', NULL, '1234567', NULL, 4, 1, 1, 1, 0, '2023-02-13 16:04:31', '2023-02-13 16:04:31');
 
