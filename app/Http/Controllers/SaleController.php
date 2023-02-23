@@ -36,6 +36,7 @@ use App\ProductPurchase;
 use App\ProductBatch;
 use App\Purchase;
 use App\RewardPointSetting;
+use App\LastNumber;
 use DB;
 use App\GeneralSetting;
 use Stripe\Stripe;
@@ -1108,8 +1109,22 @@ class SaleController extends Controller
             }
             $lims_coupon_list = Coupon::where('is_active',true)->get();
             $flag = 0;
+            $last_number = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $currentMonth = date('n');
+            $currentDate = date('d');
+            $currentYear = date('Y');
+            if ($last_number->invoice_month == $currentMonth)
+            {
+                $next = $last_number->invoice_number + 1;
+                $nextNumber = str_pad($next, 3, "0", STR_PAD_LEFT);
+                $faktur = $nextNumber."/".$currentDate."/".$this->integerToRoman($currentMonth)."/".$currentYear;
+            }
+            else
+            {
+                $faktur = "001/".$currentDate."/".$this->integerToRoman($currentMonth)."/".$currentYear;
+            }
 
-            return view('backend.sale.pos', compact('all_permission', 'lims_customer_list', 'lims_customer_group_all', 'lims_warehouse_list', 'lims_reward_point_setting_data', 'lims_product_list', 'product_number', 'lims_tax_list', 'lims_biller_list', 'lims_pos_setting_data', 'lims_brand_list', 'lims_category_list', 'recent_sale', 'recent_draft', 'lims_coupon_list', 'flag'));
+            return view('backend.sale.pos', compact('all_permission', 'lims_customer_list', 'lims_customer_group_all', 'lims_warehouse_list', 'lims_reward_point_setting_data', 'lims_product_list', 'product_number', 'lims_tax_list', 'lims_biller_list', 'lims_pos_setting_data', 'lims_brand_list', 'lims_category_list', 'recent_sale', 'recent_draft', 'lims_coupon_list', 'flag', 'faktur'));
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
@@ -1172,8 +1187,22 @@ class SaleController extends Controller
             }
             $lims_coupon_list = Coupon::where('is_active',true)->get();
             $flag = 0;
+            $last_number = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $currentMonth = date('n');
+            $currentDate = date('d');
+            $currentYear = date('Y');
+            if ($last_number->invoice_month == $currentMonth)
+            {
+                $next = $last_number->invoice_number + 1;
+                $nextNumber = str_pad($next, 3, "0", STR_PAD_LEFT);
+                $faktur = $nextNumber."/".$currentDate."/".$this->integerToRoman($currentMonth)."/".$currentYear;
+            }
+            else
+            {
+                $faktur = "001/".$currentDate."/".$this->integerToRoman($currentMonth)."/".$currentYear;
+            }
 
-            return view('backend.sale.pos2', compact('all_permission', 'lims_customer_list', 'lims_customer_group_all', 'lims_warehouse_list', 'lims_reward_point_setting_data', 'lims_product_list', 'product_number', 'lims_tax_list', 'lims_biller_list', 'lims_pos_setting_data', 'lims_brand_list', 'lims_category_list', 'recent_sale', 'recent_draft', 'lims_coupon_list', 'flag'));
+            return view('backend.sale.pos2', compact('all_permission', 'lims_customer_list', 'lims_customer_group_all', 'lims_warehouse_list', 'lims_reward_point_setting_data', 'lims_product_list', 'product_number', 'lims_tax_list', 'lims_biller_list', 'lims_pos_setting_data', 'lims_brand_list', 'lims_category_list', 'recent_sale', 'recent_draft', 'lims_coupon_list', 'flag', 'faktur'));
         }
         else
             return redirect()->back()->with('not_permitted', 'Sorry! You are not allowed to access this module');
@@ -2865,5 +2894,41 @@ class SaleController extends Controller
         }
         $lims_sale_data->delete();
         return Redirect::to($url)->with('not_permitted', $message);
+    }
+
+    function integerToRoman($integer)
+    {
+        // Convert the integer into an integer (just to make sure)
+        $integer = intval($integer);
+        $result = '';
+        
+        // Create a lookup array that contains all of the Roman numerals.
+        $lookup = array('M' => 1000,
+        'CM' => 900,
+        'D' => 500,
+        'CD' => 400,
+        'C' => 100,
+        'XC' => 90,
+        'L' => 50,
+        'XL' => 40,
+        'X' => 10,
+        'IX' => 9,
+        'V' => 5,
+        'IV' => 4,
+        'I' => 1);
+        
+        foreach($lookup as $roman => $value){
+        // Determine the number of matches
+        $matches = intval($integer/$value);
+        
+        // Add the same number of characters to the string
+        $result .= str_repeat($roman,$matches);
+        
+        // Set the integer to be the remainder of the integer and the value
+        $integer = $integer % $value;
+        }
+        
+        // The Roman numeral should be built, return it
+        return $result;
     }
 }

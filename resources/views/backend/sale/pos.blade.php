@@ -861,7 +861,7 @@
                                     </div>
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" onkeyup='saveValue(this);'/>
+                                            <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" value="{{ $faktur }}" onkeyup='saveValue(this);'/>
                                       </div>
                                       @if($errors->has('reference_no'))
                                        <span>
@@ -1975,7 +1975,10 @@ var localStorageTempUnitName = [];
 var localStorageSaleUnitOperator = [];
 var localStorageSaleUnitOperationValue = [];
 
-$("#reference-no").val(getSavedValue("reference-no"));
+if (getSavedValue("reference-no") != '')
+{
+    $("#reference-no").val(getSavedValue("reference-no"));
+}
 $("#order-discount").val(getSavedValue("order-discount"));
 $("#order-discount-val").val(getSavedValue("order-discount-val"));
 $("#order-discount-type").val(getSavedValue("order-discount-type"));

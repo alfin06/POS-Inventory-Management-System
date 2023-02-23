@@ -861,7 +861,7 @@
                                     </div>
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Type reference number" onkeyup='saveValue(this);'/>
+                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" value="{{ $faktur }}" onkeyup='saveValue(this);'/>
                                       </div>
                                       @if($errors->has('reference_no'))
                                        <span>
