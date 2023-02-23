@@ -856,7 +856,7 @@
                                 <div class="row">
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" name="created_at" class="form-control date" placeholder="Choose date" onkeyup='saveValue(this);'/>
+                                          <input type="text" id="created_at" name="created_at" class="form-control date" placeholder="Choose date" onkeyup='saveValue(this);'/>
                                       </div>
                                     </div>
                                     <div class="col-md-4">
@@ -1969,7 +1969,16 @@ var localStorageTempUnitName = [];
 var localStorageSaleUnitOperator = [];
 var localStorageSaleUnitOperationValue = [];
 
-$("#reference-no").val(getSavedValue("reference-no"));
+if (getSavedValue("reference-no") != '')
+{
+    $("#reference-no").val(getSavedValue("reference-no"));
+}
+if ($('#created_at').val() == '')
+{
+    var today = new Date();
+    var result = ('0' + today.getDate()).slice(-2) + '-' + ('0' + (today.getMonth() + 1)).slice(-2) + '-' + today.getFullYear();
+    $('#created_at').val(result);
+}
 $("#order-discount").val(getSavedValue("order-discount"));
 $("#order-discount-val").val(getSavedValue("order-discount-val"));
 $("#order-discount-type").val(getSavedValue("order-discount-type"));
