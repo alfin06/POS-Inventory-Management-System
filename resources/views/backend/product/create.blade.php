@@ -13,7 +13,7 @@
                         <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
                         <form id="product-form">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-4"  style="display:none;">
                                     <div class="form-group">
                                         <label>{{trans('file.Product Type')}} *</strong> </label>
                                         <div class="input-group">
@@ -45,7 +45,7 @@
                                         <span class="validation-msg" id="code-error"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4" style="display:none;">
                                     <div class="form-group">
                                         <label>{{trans('file.Barcode Symbology')}} *</strong> </label>
                                         <div class="input-group">
@@ -91,7 +91,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Brand')}}</strong> </label>
                                         <div class="input-group">
@@ -102,7 +102,7 @@
                                           </select>
                                       </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.category')}} *</strong> </label>
@@ -132,14 +132,22 @@
                                               </div>
                                               <span class="validation-msg"></span>
                                         </div>
-                                        <div class="col-md-4">
+                                        
+                                        <div id="alert-qty" class="col-md-4">
+                                            <div class="form-group">
+                                                <label>{{trans('file.Alert Quantity')}}</strong> </label>
+                                                <input type="number" name="alert_quantity" class="form-control" step="any">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-4" style="display:none;">
                                                 <label>{{trans('file.Sale Unit')}}</strong> </label>
                                                 <div class="input-group">
                                                   <select class="form-control selectpicker" name="sale_unit_id">
                                                   </select>
                                               </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4" style="display:none;">
                                                 <div class="form-group">
                                                     <label>{{trans('file.Purchase Unit')}}</strong> </label>
                                                     <div class="input-group">
@@ -167,18 +175,13 @@
                                         <input type="hidden" name="qty" value="0.00">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Daily Sale Objective')}}</strong></label> <i class="dripicons-question" data-toggle="tooltip" title="{{trans('file.Minimum qty which must be sold in a day. If not, you will be notified on dashboard. But you have to set up the cron job properly for that. Follow the documentation in that regard.')}}"></i>
                                         <input type="number" name="daily_sale_objective" class="form-control" step="any">
                                     </div>
-                                </div>
-                                <div id="alert-qty" class="col-md-4">
-                                    <div class="form-group">
-                                        <label>{{trans('file.Alert Quantity')}}</strong> </label>
-                                        <input type="number" name="alert_quantity" class="form-control" step="any">
-                                    </div>
-                                </div>
+                                </div> -->
+                                
                                 <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Product Tax')}}</strong> </label>
@@ -225,10 +228,10 @@
                                         <textarea name="product_details" class="form-control" rows="3"></textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-3" id="variant-option">
+                                <!-- <div class="col-md-12 mt-3" id="variant-option">
                                     <h5><input name="is_variant" type="checkbox" id="is-variant" value="1">&nbsp; {{trans('file.This product has variant')}}</h5>
-                                </div>
-                                <div class="col-md-12" id="variant-section">
+                                </div> -->
+                                <!-- <div class="col-md-12" id="variant-section">
                                     <div class="row" id="variant-input-section">
                                         <div class="col-md-4 form-group mt-2">
                                             <label>{{trans('file.Option')}} *</label>
@@ -256,7 +259,7 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- <div class="col-md-12 mt-2" id="diffPrice-option">
                                     <h5><input name="is_diffPrice" type="checkbox" id="is-diffPrice" value="1">&nbsp; {{trans('file.This product has different price for different warehouse')}}</h5>
                                 </div>
