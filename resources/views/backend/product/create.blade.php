@@ -179,7 +179,7 @@
                                         <input type="number" name="alert_quantity" class="form-control" step="any">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Product Tax')}}</strong> </label>
                                         <select name="tax_id" class="form-control selectpicker">
@@ -198,7 +198,7 @@
                                             <option value="2">{{trans('file.Inclusive')}}</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4">
                                     <div class="form-group mt-3">
                                         <input type="checkbox" name="featured" value="1">&nbsp;
@@ -206,12 +206,12 @@
                                         <p class="italic">{{trans('file.Featured product will be displayed in POS')}}</p>
                                     </div> 
                                 </div> 
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group mt-3">
                                         <input type="checkbox" name="is_embeded" value="1">&nbsp;
                                         <label>{{trans('file.Embedded Barcode')}} <i class="dripicons-question" data-toggle="tooltip" title="{{trans('file.Check this if this product will be used in weight scale machine.')}}"></i></label>
                                     </div> 
-                                </div>
+                                </div> -->
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>{{trans('file.Product Image')}}</strong> </label> <i class="dripicons-question" data-toggle="tooltip" title="{{trans('file.You can upload multiple image. Only .jpeg, .jpg, .png, .gif file can be uploaded. First image will be base image.')}}"></i>
@@ -257,7 +257,7 @@
                                         </table>
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2" id="diffPrice-option">
+                                <!-- <div class="col-md-12 mt-2" id="diffPrice-option">
                                     <h5><input name="is_diffPrice" type="checkbox" id="is-diffPrice" value="1">&nbsp; {{trans('file.This product has different price for different warehouse')}}</h5>
                                 </div>
                                 <div class="col-md-6" id="diffPrice-section">
@@ -282,13 +282,13 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                <div class="col-md-12 mt-3" id="batch-option">
+                                </div> -->
+                                <!-- <div class="col-md-12 mt-3" id="batch-option">
                                     <h5><input name="is_batch" type="checkbox" id="is-batch" value="1">&nbsp; {{trans('file.This product has batch and expired date')}}</h5>
                                 </div>
                                 <div class="col-md-12 mt-3" id="imei-option">
                                     <h5><input name="is_imei" type="checkbox" id="is-imei" value="1">&nbsp; {{trans('file.This product has IMEI or Serial numbers')}}</h5>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4 mt-3">
                                     <input name="promotion" type="checkbox" id="promotion" value="1">&nbsp;
                                     <label><h5> {{trans('file.Add Promotional Price')}}</h5></label>

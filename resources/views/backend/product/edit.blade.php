@@ -47,7 +47,7 @@
                                         <span class="validation-msg" id="code-error"></span>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Barcode Symbology')}} *</strong> </label>
                                         <div class="input-group">
@@ -62,7 +62,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div id="digital" class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Attach File')}}</strong> </label>
@@ -162,7 +162,7 @@
                                                   <input type="hidden" name="unit" value="{{ $lims_product_data->unit_id}}">
                                               </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <!-- <div class="col-md-4">
                                                 <label>{{trans('file.Sale Unit')}}</strong> </label>
                                                 <div class="input-group">
                                                   <select class="form-control selectpicker" name="sale_unit_id" id="sale-unit">
@@ -179,7 +179,7 @@
                                                       <input type="hidden" name="purchase_unit" value="{{ $lims_product_data->purchase_unit_id}}">
                                                   </div>
                                                 </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                                 <div id="cost" class="col-md-4">
@@ -199,19 +199,19 @@
                                         <input type="hidden" name="qty" value="{{ $lims_product_data->qty }}" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Daily Sale Objective')}}</strong> </label>
                                         <input type="number" name="daily_sale_objective" class="form-control" step="any" value="{{$lims_product_data->daily_sale_objective}}">
                                     </div>
-                                </div>
+                                </div> -->
                                 <div id="alert-qty" class="col-md-4">
                                     <div class="form-group">
                                         <label>{{trans('file.Alert Quantity')}}</strong> </label>
                                         <input type="number" name="alert_quantity" value="{{$lims_product_data->alert_quantity}}" class="form-control" step="any">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <!-- <div class="col-md-4">
                                     <div class="form-group">
                                         <input type="hidden" name="tax" value="{{$lims_product_data->tax_id}}">
                                         <label>{{trans('file.product')}} {{trans('file.Tax')}}</strong> </label>
@@ -232,7 +232,7 @@
                                             <option value="2">{{trans('file.Inclusive')}}</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-4">
                                     <div class="form-group mt-3">
                                         @if($lims_product_data->featured)
@@ -292,14 +292,14 @@
                                         <textarea name="product_details" class="form-control" rows="5">{{str_replace('@', '"', $lims_product_data->product_details)}}</textarea>
                                     </div>
                                 </div>
-                                <div class="col-md-12 mt-2" id="diffPrice-option">
+                                <!-- <div class="col-md-12 mt-2" id="diffPrice-option">
                                     @if($lims_product_data->is_diffPrice)
                                         <h5><input name="is_diffPrice" type="checkbox" id="is-diffPrice" value="1" checked>&nbsp; {{trans('file.This product has different price for different warehouse')}}</h5>
                                     @else
                                         <h5><input name="is_diffPrice" type="checkbox" id="is-diffPrice" value="1">&nbsp; {{trans('file.This product has different price for different warehouse')}}</h5>
                                     @endif
-                                </div>
-                                <div class="col-md-6" id="diffPrice-section">
+                                </div> -->
+                                <!-- <div class="col-md-6" id="diffPrice-section">
                                     <div class="table-responsive ml-2">
                                         <table id="diffPrice-table" class="table table-hover">
                                             <thead>
@@ -330,8 +330,8 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                                <div class="col-md-12 mt-3" id="batch-option">
+                                </div> -->
+                                <!-- <div class="col-md-12 mt-3" id="batch-option">
                                     @if($lims_product_data->is_batch)
                                     <h5><input name="is_batch" type="checkbox" id="is-batch" value="1" checked>&nbsp; {{trans('file.This product has batch and expired date')}}</h5>
                                     @else
@@ -351,7 +351,7 @@
                                     @else
                                     <h5><input name="is_variant" type="checkbox" id="is-variant" value="1">&nbsp; {{trans('file.This product has variant')}}</h5>
                                     @endif
-                                </div>
+                                </div> -->
                                 <div class="col-md-12" id="variant-section">
                                     @if($lims_product_data->variant_option)
                                     <div class="row" id="variant-input-section">
