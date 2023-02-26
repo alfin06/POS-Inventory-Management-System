@@ -934,11 +934,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <!-- <div class="col-md-12">
                                         <div class="search-box form-group">
                                             <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Scan/Search product by name/code" class="form-control"  />
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="form-group">
                                     <div class="table-responsive transaction-list">
@@ -1007,11 +1007,9 @@
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Total')}}</span><span id="subtotal">0.00</span>
                                         </div>
-                                        <!--
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Discount')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#order-discount-modal"> <i class="dripicons-document-edit"></i></button></span><span id="discount">0.00</span>
                                         </div>
-                                        -->
                                         <!--
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Coupon')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#coupon-modal"><i class="dripicons-document-edit"></i></button></span><span id="coupon-text">0.00</span>
@@ -1054,9 +1052,9 @@
                         <!-- <div class="column-5">
                             <button style="background-color: #5f27cd" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="gift-card-btn"><i class="fa fa-credit-card-alt"></i> {{trans('file.Gift Card')}}</button>
                         </div> -->
-                        <div class="column-5">
+                        <!-- <div class="column-5">
                             <button style="background-color: #b33771" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="deposit-btn"><i class="fa fa-university"></i> {{trans('file.Deposit')}}</button>
-                        </div>
+                        </div> -->
                         @if($lims_reward_point_setting_data->is_active)
                         <!--
                         <div class="column-5">
@@ -1102,13 +1100,13 @@
                                             <label>{{trans('file.Paid By')}}</label>
                                             <select name="paid_by_id_select" class="form-control selectpicker">
                                                 <option value="1">Cash</option>
-                                                <option value="2">Gift Card</option>
+                                                <!-- <option value="2">Gift Card</option> -->
                                                 <option value="3">Credit Card</option>
-                                                <option value="4">Cheque</option>
-                                                <option value="5">Paypal</option>
-                                                <option value="6">Deposit</option>
+                                                <!-- <option value="4">Cheque</option>
+                                                <option value="5">Paypal</option> -->
+                                                <!-- <option value="6">Deposit</option> -->
                                                 @if($lims_reward_point_setting_data->is_active)
-                                                <option value="7">Points</option>
+                                                <!-- <option value="7">Points</option> -->
                                                 @endif
                                             </select>
                                         </div>
@@ -1118,13 +1116,14 @@
                                             <div class="card-errors" role="alert"></div>
                                         </div>
                                         <div class="form-group col-md-12 gift-card">
-                                            <label> {{trans('file.Gift Card')}} *</label>
+                                            <!-- <label> {{trans('file.Gift Card')}} *</label> -->
                                             <input type="hidden" name="gift_card_id">
-                                            <select id="gift_card_id_select" name="gift_card_id_select" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card..."></select>
+                                            <!-- <select id="gift_card_id_select" name="gift_card_id_select" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card..."></select> -->
                                         </div>
                                         <div class="form-group col-md-12 cheque">
-                                            <label>{{trans('file.Cheque Number')}} *</label>
-                                            <input type="text" name="cheque_no" class="form-control">
+                                            <!-- <label>{{trans('file.Cheque Number')}} *</label> -->
+                                            <!-- <input type="text" name="cheque_no" class="form-control"> -->
+                                            <input type="hidden" name="cheque_no">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>{{trans('file.Payment Note')}}</label>
@@ -1132,10 +1131,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-6 form-group">
+                                       <!-- <div class="col-md-6 form-group">
                                             <label>{{trans('file.Sale Note')}}</label>
                                             <textarea rows="3" class="form-control" name="sale_note"></textarea>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-6 form-group">
                                             <label>{{trans('file.Staff Note')}}</label>
                                             <textarea rows="3" class="form-control" name="staff_note"></textarea>
@@ -1147,12 +1146,11 @@
                                 </div>
                                 <div class="col-md-2 qc" data-initial="1">
                                     <h4><strong>{{trans('file.Quick Cash')}}</strong></h4>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="10" type="button">10</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="20" type="button">20</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="50" type="button">50</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="100" type="button">100</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="500" type="button">500</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="1000" type="button">1000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="10000" type="button">10.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="50000" type="button">50.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="100000" type="button">100.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="500000" type="button">500.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="1000000" type="button">1.000.000</button>
                                     <button class="btn btn-block btn-danger qc-btn sound-btn" data-amount="0" type="button">{{trans('file.Clear')}}</button>
                                 </div>
                             </div>
@@ -2793,7 +2791,7 @@ $("#cheque-btn").on("click",function() {
     cheque();
 });
 
-$("#cash-btn").on("click",function() {
+$("#cash-btn").on("click",function() {div.qc
     $('select[name="paid_by_id_select"]').val(1);
     $('.selectpicker').selectpicker('refresh');
     $('div.qc').show();
@@ -3130,7 +3128,7 @@ function couponDiscount() {
                 else if(value['type'] == 'fixed'){
                     if(parseFloat($('input[name="grand_total"]').val()) >= value['minimum_amount']) {
                         $('input[name="grand_total"]').val($('input[name="grand_total"]').val() - value['amount']);
-                        $('#grand-total').text(parseFloat($('input[name="grand_total"]').val()).toFixed(0));
+                        $('#grand-total').text(parseFloat($('input[name="grand_total"]').val()).toFixed());
                         if(!$('input[name="coupon_active"]').val())
                             alert('Congratulation! You got '+value['amount']+' '+currency+' discount');
                         $(".coupon-check").prop("disabled",true);

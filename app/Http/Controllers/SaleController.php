@@ -668,7 +668,7 @@ class SaleController extends Controller
                     // Charge the Customer instead of the card:
                     $charge = \Stripe\Charge::create([
                         'amount' => $grand_total * 100,
-                        'currency' => 'usd',
+                        'currency' => 'idr',
                         'customer' => $customer->id
                     ]);
                     $data['customer_stripe_id'] = $customer->id;
@@ -679,7 +679,7 @@ class SaleController extends Controller
 
                     $charge = \Stripe\Charge::create([
                         'amount' => $grand_total * 100,
-                        'currency' => 'usd',
+                        'currency' => 'idr',
                         'customer' => $customer_id, // Previously stored, then retrieved
                     ]);
                     $data['customer_stripe_id'] = $customer_id;
@@ -756,7 +756,32 @@ class SaleController extends Controller
             }
         }
         if($lims_sale_data->sale_status == '1')
+        {
+            //Change the last number
+            $current = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $currentMonth = date('m');
+            if ($current->invoice_month != $currentMonth)
+            {
+                $last['invoice_month'] = $currentMonth;
+                $last['invoice_number'] = 1;
+                LastNumber::where([
+                    ['invoice_type', 'CV. HPL Indonesia']
+                ])->update($last);
+            }
+            else
+            {
+                $last['invoice_number'] = $current->invoice_number + 1;
+                LastNumber::where([
+                    ['invoice_type', 'CV. HPL Indonesia']
+                ])->update($last);
+            }
+            Product_Sale::where([
+                ['product_id', $product_sale['product_id']],
+                ['variant_id', $product_sale['variant_id']],
+                ['sale_id', $id]
+            ])->update($product_sale);
             return redirect('sales/gen_invoice/' . $lims_sale_data->id)->with('message', $message);
+        }
         elseif($data['pos'])
             return redirect('pos')->with('message', $message);
         else

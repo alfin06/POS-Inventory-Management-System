@@ -11,8 +11,8 @@
 
     <style type="text/css">
         * {
-            font-size: 14px;
-            line-height: 24px;
+            font-size: 8pt;
+            line-height: 12px;
             font-family: 'Ubuntu', sans-serif;
             text-transform: capitalize;
         }
@@ -42,10 +42,10 @@
         table {
             border-collapse: collapse;
         }
-        tr {border-bottom: 1px dotted #ddd;}
-        td,th {padding: 7px 0;width: 50%;}
+        tr {border-bottom: 1px solid #ddd;}
+        td,th {padding: 0px 0;width: 50%;}
 
-        table {width: 100%;}
+        table {width: 100%; }
         tfoot tr th:first-child {text-align: left;}
 
         .centered {
@@ -56,8 +56,8 @@
 
         @media print {
             * {
-                font-size:12px;
-                line-height: 20px;
+                font-size:8pt;
+                line-height: 12px;
             }
             td,th {padding: 5px 0;}
             .hidden-print {
@@ -76,7 +76,7 @@
   </head>
 <body>
 
-<div style="max-width:400px;margin:0 auto">
+<div style="max-width:1654px;margin:0">
     @if(preg_match('~[0-9]~', url()->previous()))
         @php $url = '../../pos'; @endphp
     @else
@@ -93,24 +93,32 @@
     </div>
         
     <div id="receipt-data">
-        <div class="centered">
-            @if($general_setting->site_logo)
-                <img src="{{url('public/logo', $general_setting->site_logo)}}" height="42" width="50" style="margin:10px 0;filter: brightness(0);">
-            @endif
-            
-            <h2>{{$lims_biller_data->company_name}}</h2>
-            
-            <p>{{trans('file.Address')}}: {{$lims_warehouse_data->address}}
-                <br>{{trans('file.Phone Number')}}: {{$lims_warehouse_data->phone}}
-            </p>
+        <div style="text-align:left;">
+            <div style="float:right;">
+                <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
+                <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
+            </div>
+            <h2>CV. HPL Indonesia</h2>
+            <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
+            <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>
-        <p>{{trans('file.Date')}}: {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}<br>
-            {{trans('file.reference')}}: {{$lims_sale_data->reference_no}}<br>
-            {{trans('file.customer')}}: {{$lims_customer_data->name}}
-        </p>
+        <div class="row">
+            <h2>NOTA FAKTUR : {{$lims_sale_data->reference_no}}</h2>
+        </div>
         <table class="table-data">
-            <tbody>
-                <?php $total_product_tax = 0;?>
+            <thead>
+                <tr>
+                    <th style="width:10%;">BANYAKNYA</th>
+                    <th style="width:30%;">NAMA BARANG</th>
+                    <th style="width:30%;">HARGA</th>
+                    <th style="width:30%;">JUMLAH</th>
+                </tr>
+            </thead>
+            <tbody class="centered">
+                <?php 
+                $total_product_tax = 0;
+                $count = 0;
+                ?>
                 @foreach($lims_product_sale_data as $key => $product_sale_data)
                 <?php 
                     $lims_product_data = \App\Product::find($product_sale_data->product_id);
@@ -128,102 +136,64 @@
                     if($product_sale_data->imei_number) {
                         $product_name .= '<br>'.trans('IMEI or Serial Numbers').': '.$product_sale_data->imei_number;
                     }
+                    $count++;
                 ?>
                 <tr>
-                    <td colspan="2">
-                        {!!$product_name!!}
-                        <br>{{$product_sale_data->qty}} x {{number_format((float)($product_sale_data->total / $product_sale_data->qty), 2, '.', '')}}
-
-                        @if($product_sale_data->tax_rate)
-                            <?php $total_product_tax += $product_sale_data->tax ?>
-                            [{{trans('file.Tax')}} ({{$product_sale_data->tax_rate}}%): {{$product_sale_data->tax}}]
-                        @endif
-                    </td>
-                    <td style="text-align:right;vertical-align:bottom">{{number_format((float)$product_sale_data->total, 2, '.', '')}}</td>
+                    <td style="width:10%;">{{$product_sale_data->qty}}</td>
+                    <td style="width:30%;">{!!$product_name!!}</td>
+                    <td style="width:30%;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
+                    <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
                 </tr>
                 @endforeach
-            
-            <!-- <tfoot> -->
+                <?php 
+                while ($count <= 9) {
+                ?>
                 <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.Total')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->total_price, 2, '.', '')}}</th>
+                    <td style="width:10%;">&nbsp;</td>
+                    <td style="width:30%;">&nbsp;</td>
+                    <td style="width:30%;">&nbsp;</td>
+                    <td style="width:30%;">&nbsp;</td>
                 </tr>
-                @if($general_setting->invoice_format == 'gst' && $general_setting->state == 1)
+                <?php
+                $count++;
+                }
+                ?>
                 <tr>
-                    <td colspan="2">IGST</td>
-                    <td style="text-align:right">{{number_format((float)$total_product_tax, 2, '.', '')}}</td>
-                </tr>
-                @elseif($general_setting->invoice_format == 'gst' && $general_setting->state == 2)
-                <tr>
-                    <td colspan="2">SGST</td>
-                    <td style="text-align:right">{{number_format((float)($total_product_tax / 2), 2, '.', '')}}</td>
-                </tr>
-                <tr>
-                    <td colspan="2">CGST</td>
-                    <td style="text-align:right">{{number_format((float)($total_product_tax / 2), 2, '.', '')}}</td>
-                </tr>
-                @endif
-                @if($lims_sale_data->order_tax)
-                <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.Order Tax')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->order_tax, 2, '.', '')}}</th>
-                </tr>
-                @endif
-                @if($lims_sale_data->order_discount)
-                <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.Order Discount')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->order_discount, 2, '.', '')}}</th>
-                </tr>
-                @endif
-                @if($lims_sale_data->coupon_discount)
-                <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.Coupon Discount')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->coupon_discount, 2, '.', '')}}</th>
-                </tr>
-                @endif
-                @if($lims_sale_data->shipping_cost)
-                <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.Shipping Cost')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->shipping_cost, 2, '.', '')}}</th>
-                </tr>
-                @endif
-                <tr>
-                    <th colspan="2" style="text-align:left">{{trans('file.grand total')}}</th>
-                    <th style="text-align:right">{{number_format((float)$lims_sale_data->grand_total, 2, '.', '')}}</th>
+                    <td style="width:10%;border:0;text-align:left;" colspan="2"><b>Catatan:</b></td>
+                    <td style="width:30%;"><b>JUMLAH</b></td>
+                    <td style="width:30%;">{{number_format($lims_sale_data->total_price, 0, ',', '.')}}</td>
                 </tr>
                 <tr>
-                    @if($general_setting->currency_position == 'prefix')
-                    <th class="centered" colspan="3">{{trans('file.In Words')}}: <span>{{$currency->code}}</span> <span>{{str_replace("-"," ",$numberInWords)}}</span></th>
+                    <td style="width:10%;border:0;text-align:left;" colspan="2">Barang yang sudah dibeli tidak boleh ditukar/dikembalikan</td>
+                    <td style="width:30%;"><b>DISC.</b></td>
+                    @if($lims_sale_data->order_discount)
+                    <td style="width:30%;">{{number_format($lims_sale_data->order_discount, 0, ',', '.')}}</td>
                     @else
-                    <th class="centered" colspan="3">{{trans('file.In Words')}}: <span>{{str_replace("-"," ",$numberInWords)}}</span> <span>{{$currency->code}}</span></th>
+                    <td style="width:30%;">-</td>
                     @endif
+                </tr>
+                <tr>
+                    <td style="width:10%;border:0;text-align:left;" colspan="2">kecuali ada perjanjian.</td>
+                    <td style="width:30%;"><b>JUMLAH D.P.P</b></td>
+                    <td style="width:30%;">-</td>
+                </tr>
+                <tr>
+                    <td style="width:10%;border:0;text-align:left;" colspan="2"><b>Terbilang:</b></td>
+                    <td style="width:30%;"><b>PPN (11%)</b></td>
+                    @if($lims_sale_data->order_tax)
+                    <td style="width:30%;">{{number_format($lims_sale_data->order_tax, 0, ',', '.')}}</td>
+                    @else
+                    <td style="width:30%;">-</td>
+                    @endif
+                </tr>
+                <tr>
+                    <td style="width:10%;border:0;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
+                    <td style="width:30%;"><b>TOTAL</b></td>
+                    <td style="width:30%;">{{number_format($lims_sale_data->grand_total, 0, ',', '.')}}</td>
                 </tr>
             </tbody>
             <!-- </tfoot> -->
         </table>
-        <table>
-            <tbody>
-                @foreach($lims_payment_data as $payment_data)
-                <tr style="background-color:#ddd;">
-                    <td style="padding: 5px;width:30%">{{trans('file.Paid By')}}: {{$payment_data->paying_method}}</td>
-                    <td style="padding: 5px;width:40%">{{trans('file.Amount')}}: {{number_format((float)$payment_data->amount, 2, '.', '')}}</td>
-                    <td style="padding: 5px;width:30%">{{trans('file.Change')}}: {{number_format((float)$payment_data->change, 2, '.', '')}}</td>
-                </tr>                
-                @endforeach
-                <tr><td class="centered" colspan="3">{{trans('file.Thank you for shopping with us. Please come again')}}</td></tr>
-                <tr>
-                    <td class="centered" colspan="3">
-                    <?php echo '<img style="margin-top:10px;" src="data:image/png;base64,' . DNS1D::getBarcodePNG($lims_sale_data->reference_no, 'C128') . '" width="300" alt="barcode"   />';?>
-                    <br>
-                    <?php echo '<img style="margin-top:10px;" src="data:image/png;base64,' . DNS2D::getBarcodePNG($lims_sale_data->reference_no, 'QRCODE') . '" alt="barcode"   />';?>    
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <!-- <div class="centered" style="margin:30px 0 50px">
-            <small>{{trans('file.Invoice Generated By')}} {{$general_setting->site_title}}.
-            {{trans('file.Developed By')}} LionCoders</strong></small>
-        </div> -->
     </div>
 </div>
 
