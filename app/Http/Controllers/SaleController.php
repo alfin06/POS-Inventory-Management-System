@@ -270,9 +270,11 @@ class SaleController extends Controller
                             </button>
                             <ul class="dropdown-menu edit-options dropdown-menu-right dropdown-default" user="menu">
                                 <li><a href="'.route('sale.invoice', $sale->id).'" class="btn btn-link"><i class="fa fa-copy"></i> '.trans('file.Generate Invoice').'</a></li>
+                                <li><a href="'.route('sale.wo', $sale->id).'" class="btn btn-link"><i class="fa fa-copy"></i> Cetak Surat Jalan</a></li>
+                                <!--
                                 <li>
                                     <button type="button" class="btn btn-link view"><i class="fa fa-eye"></i> '.trans('file.View').'</button>
-                                </li>';
+                                </li>-->';
                 if(in_array("sales-edit", $request['all_permission'])){
                     if($sale->sale_status != 3)
                         $nestedData['options'] .= '<li>
@@ -294,10 +296,10 @@ class SaleController extends Controller
                             <button type="button" class="add-payment btn btn-link" data-id = "'.$sale->id.'" data-toggle="modal" data-target="#add-payment"><i class="fa fa-plus"></i> '.trans('file.Add Payment').'</button>
                         </li>';
 
-                $nestedData['options'] .= 
-                    '<li>
-                        <button type="button" class="add-delivery btn btn-link" data-id = "'.$sale->id.'"><i class="fa fa-truck"></i> '.trans('file.Add Delivery').'</button>
-                    </li>';
+                // $nestedData['options'] .= 
+                //     '<li>
+                //         <button type="button" class="add-delivery btn btn-link" data-id = "'.$sale->id.'"><i class="fa fa-truck"></i> '.trans('file.Add Delivery').'</button>
+                //     </li>';
                 if(in_array("sales-delete", $request['all_permission']))
                     $nestedData['options'] .= \Form::open(["route" => ["sales.destroy", $sale->id], "method" => "DELETE"] ).'
                             <li>
@@ -2103,6 +2105,25 @@ class SaleController extends Controller
         $numberInWords = $numberTransformer->toWords($lims_sale_data->grand_total);
 
         return view('backend.sale.invoice', compact('lims_sale_data', 'lims_product_sale_data', 'lims_biller_data', 'lims_warehouse_data', 'lims_customer_data', 'lims_payment_data', 'numberInWords'));
+    }
+
+    public function genWo($id)
+    {
+        $lims_sale_data = Sale::find($id);
+        $lims_product_sale_data = Product_Sale::where('sale_id', $id)->get();
+        $lims_biller_data = Biller::find($lims_sale_data->biller_id);
+        $lims_warehouse_data = Warehouse::find($lims_sale_data->warehouse_id);
+        $lims_customer_data = Customer::find($lims_sale_data->customer_id);
+        $lims_payment_data = Payment::where('sale_id', $id)->get();
+
+        $numberToWords = new NumberToWords();
+        if(\App::getLocale() == 'ar' || \App::getLocale() == 'hi' || \App::getLocale() == 'vi' || \App::getLocale() == 'en-gb')
+            $numberTransformer = $numberToWords->getNumberTransformer('en');
+        else
+            $numberTransformer = $numberToWords->getNumberTransformer(\App::getLocale());
+        $numberInWords = $numberTransformer->toWords($lims_sale_data->grand_total);
+
+        return view('backend.sale.wo', compact('lims_sale_data', 'lims_product_sale_data', 'lims_biller_data', 'lims_warehouse_data', 'lims_customer_data', 'lims_payment_data', 'numberInWords'));
     }
 
     public function addPayment(Request $request)

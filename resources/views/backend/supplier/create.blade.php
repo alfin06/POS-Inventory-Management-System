@@ -108,7 +108,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" class="form-control">
+                                    <input type="text" name="country" class="form-control" value="Indonesia">
                                 </div>
                             </div>
                             <div class="col-md-12">

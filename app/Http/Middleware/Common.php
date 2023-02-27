@@ -20,7 +20,7 @@ class Common
             \App::setLocale($_COOKIE['language']);
         } 
         else {
-            \App::setLocale('en');
+            \App::setLocale('id');
         }
         //setting theme
         if(isset($_COOKIE['theme'])) {

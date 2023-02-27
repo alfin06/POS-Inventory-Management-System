@@ -121,6 +121,7 @@ Route::group(['middleware' => ['common', 'auth', 'active']], function() {
 	Route::get('sales/paypalSuccess', 'SaleController@paypalSuccess');
 	Route::get('sales/paypalPaymentSuccess/{id}', 'SaleController@paypalPaymentSuccess');
 	Route::get('sales/gen_invoice/{id}', 'SaleController@genInvoice')->name('sale.invoice');
+	Route::get('sales/gen_wo/{id}', 'SaleController@genWo')->name('sale.wo');
 	Route::post('sales/add_payment', 'SaleController@addPayment')->name('sale.add-payment');
 	Route::get('sales/getpayment/{id}', 'SaleController@getPayment')->name('sale.get-payment');
 	Route::post('sales/updatepayment', 'SaleController@updatePayment')->name('sale.update-payment');
