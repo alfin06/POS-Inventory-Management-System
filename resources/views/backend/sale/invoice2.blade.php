@@ -98,7 +98,7 @@
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
             </div>
-            <h2>CV. HPL Indonesia</h2>
+            <h2>BERKAT FURNITURE</h2>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>

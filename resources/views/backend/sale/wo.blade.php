@@ -103,7 +103,12 @@
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>
         <div class="row">
-            <h2>Surat Jalan No. : {{$lims_sale_data->reference_no}}</h2>
+            <h2>Surat Jalan No. : 
+            <?php 
+                $ref = explode("-", $lims_sale_data->reference_no);
+                echo $ref[0];
+            ?>
+            </h2>
         </div>
         <div class="row">
             <p>D.H. Bersama ini kendaraan ................................................................... No. .............................................. kami mengirimkan barang2 tsb ke alamat Tuan sbb:</p>

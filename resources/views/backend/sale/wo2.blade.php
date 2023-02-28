@@ -98,25 +98,27 @@
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
             </div>
-            <h2>CV. HPL Indonesia</h2>
+            <h2>BERKAT FURNITURE</h2>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>
         <div class="row">
-            <h2>NOTA FAKTUR : 
+            <h2>Surat Jalan No. : 
             <?php 
                 $ref = explode("-", $lims_sale_data->reference_no);
                 echo $ref[0];
             ?>
             </h2>
         </div>
+        <div class="row">
+            <p>D.H. Bersama ini kendaraan ................................................................... No. .............................................. kami mengirimkan barang2 tsb ke alamat Tuan sbb:</p>
+        </div>
         <table class="table-data">
             <thead>
                 <tr>
                     <th style="width:10%;">BANYAKNYA</th>
-                    <th style="width:30%;">NAMA BARANG</th>
-                    <th style="width:30%;">HARGA</th>
-                    <th style="width:30%;">JUMLAH</th>
+                    <th style="width:45%;">NAMA BARANG</th>
+                    <th style="width:45%;">Keterangan</th>
                 </tr>
             </thead>
             <tbody class="centered">
@@ -145,9 +147,8 @@
                 ?>
                 <tr>
                     <td style="width:10%;">{{$product_sale_data->qty}}</td>
-                    <td style="width:30%;">{!!$product_name!!}</td>
-                    <td style="width:30%;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
-                    <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
+                    <td style="width:45%;">{!!$product_name!!}</td>
+                    <td style="width:45%;">&nbsp;</td>
                 </tr>
                 @endforeach
                 <?php 
@@ -155,66 +156,49 @@
                 ?>
                 <tr>
                     <td style="width:10%;">&nbsp;</td>
-                    <td style="width:30%;">&nbsp;</td>
-                    <td style="width:30%;">&nbsp;</td>
-                    <td style="width:30%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
                 </tr>
                 <?php
                 $count++;
                 }
                 ?>
                 <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2"><b>Catatan:</b></td>
-                    <td style="width:30%;text-align:right;"><b>JUMLAH</b></td>
-                    <td style="width:30%;">{{number_format($lims_sale_data->total_price, 0, ',', '.')}}</td>
+                    <td style="text-align:center;" colspan="3"><b>Catatan:</b></td>
                 </tr>
                 <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2">Barang yang sudah dibeli tidak boleh ditukar/dikembalikan</td>
-                    <td style="width:30%;text-align:right;"><b>DISC.</b></td>
-                    @if($lims_sale_data->order_discount)
-                    <td style="width:30%;">{{number_format($lims_sale_data->order_discount, 0, ',', '.')}}</td>
-                    @else
-                    <td style="width:30%;">-</td>
-                    @endif
+                    <td style="text-align:center;" colspan="3">Barang yang sudah diambil tidak</td>
                 </tr>
                 <tr style="border:none;">
-                    <td style="width:10%;border:0;text-align:left;" colspan="2">kecuali ada perjanjian.</td>
-                    <td style="width:30%;text-align:right;"><b>JUMLAH D.P.P</b></td>
-                    <td style="width:30%;">-</td>
+                    <td style="text-align:center;" colspan="3">dapat dikembalikan/ditukar.</td>
                 </tr>
                 <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2"><b>Terbilang:</b></td>
-                    <td style="width:30%;text-align:right;"><b>PPN (11%)</b></td>
-                    @if($lims_sale_data->order_tax)
-                    <td style="width:30%;">{{number_format($lims_sale_data->order_tax, 0, ',', '.')}}</td>
-                    @else
-                    <td style="width:30%;">-</td>
-                    @endif
+                    <td style="width:10%;">&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
-                    <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
-                    <td style="width:30%;">{{number_format($lims_sale_data->grand_total, 0, ',', '.')}}</td>
+                    <td style="width:10%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">Tanda Terima,</td>
+                    <td>Hormat Kami,</td>
                 </tr>
                 <tr style="border:none;">
-                    <td colspan="2">Penerima,</td>
-                    <td colspan="2">Hormat Kami,</td>
+                    <td style="width:10%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr style="border:none;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
+                    <td style="width:10%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
+                    <td style="width:45%;">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">____________________</td>
-                    <td colspan="2">____________________</td>
+                    <td>____________________</td>
                 </tr>
             </tbody>
             <!-- </tfoot> -->

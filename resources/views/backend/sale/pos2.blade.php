@@ -223,7 +223,7 @@
         </li>
         @endif
 
-        <li><a href="#return" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-return"></i><span>{{trans('file.return')}}</span></a>
+        <!-- <li><a href="#return" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-return"></i><span>{{trans('file.return')}}</span></a> -->
         <ul id="return" class="collapse list-unstyled ">
             <?php
             $index_permission = DB::table('permissions')->where('name', 'returns-index')->first();
@@ -315,7 +315,7 @@
             ])->first();
         ?>
 
-        <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a>
+        <!-- <li class=""><a href="#hrm" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user-group"></i><span>HRM</span></a> -->
         <ul id="hrm" class="collapse list-unstyled ">
             @if($department_active)
             <li id="dept-menu"><a href="{{route('departments.index')}}">{{trans('file.Department')}}</a></li>
@@ -333,7 +333,7 @@
         </ul>
         </li>
 
-        <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>{{trans('file.People')}}</span></a>
+        <!-- <li><a href="#people" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-user"></i><span>{{trans('file.People')}}</span></a> -->
         <ul id="people" class="collapse list-unstyled ">
             <?php $index_permission_active = DB::table('permissions')
                 ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
@@ -415,7 +415,7 @@
             @endif
         </ul>
         </li>
-        <li><a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>{{trans('file.Reports')}}</span></a>
+        <!-- <li><a href="#report" aria-expanded="false" data-toggle="collapse"> <i class="dripicons-document-remove"></i><span>{{trans('file.Reports')}}</span></a> -->
         <?php
             $profit_loss_active = DB::table('permissions')
                 ->join('role_has_permissions', 'permissions.id', '=', 'role_has_permissions.permission_id')
@@ -837,7 +837,7 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body" style="padding-bottom: 0">
-                        {!! Form::open(['route' => 'sales.store', 'method' => 'post', 'files' => true, 'class' => 'payment-form']) !!}
+                        {!! Form::open(['route' => 'sale.store2', 'method' => 'post', 'files' => true, 'class' => 'payment-form']) !!}
                         @php
                             if($lims_pos_setting_data)
                                 $keybord_active = $lims_pos_setting_data->keybord_active;
@@ -851,17 +851,17 @@
                                 ['role_id', \Auth::user()->role_id] ])->first();
                         @endphp
                         <div class="row">
-                            <h6>Berkat Furniture</h6>
+                            <h6>CV. HPL Indonesia</h6>
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" id="created_at" name="created_at" class="form-control date" placeholder="Choose date" onkeyup='saveValue(this);'/>
+                                          <input type="text" id="created_at" name="created_at" class="form-control date" placeholder="Pilih tanggal" onkeyup='saveValue(this);' />
                                       </div>
                                     </div>
                                     <div class="col-md-4">
                                       <div class="form-group">
-                                          <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" value="{{ $faktur }}" onkeyup='saveValue(this);'/>
+                                            <input type="text" id="reference-no" name="reference_no" class="form-control" placeholder="Nomor Faktur" value="{{ $faktur }}" onkeyup='saveValue(this);'/>
                                       </div>
                                       @if($errors->has('reference_no'))
                                        <span>
@@ -934,11 +934,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    <!-- <div class="col-md-12">
                                         <div class="search-box form-group">
                                             <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Scan/Search product by name/code" class="form-control"  />
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                                 <div class="form-group">
                                     <div class="table-responsive transaction-list">
@@ -1010,15 +1010,19 @@
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Discount')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#order-discount-modal"> <i class="dripicons-document-edit"></i></button></span><span id="discount">0.00</span>
                                         </div>
+                                        <!--
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Coupon')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#coupon-modal"><i class="dripicons-document-edit"></i></button></span><span id="coupon-text">0.00</span>
                                         </div>
+                                        -->
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Tax')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#order-tax"><i class="dripicons-document-edit"></i></button></span><span id="tax">0.00</span>
                                         </div>
+                                        <!--
                                         <div class="col-sm-4">
                                             <span class="totals-title">{{trans('file.Shipping')}} <button type="button" class="btn btn-link btn-sm" data-toggle="modal" data-target="#shipping-cost-modal"><i class="dripicons-document-edit"></i></button></span><span id="shipping-cost">0.00</span>
                                         </div>
+                                        -->
                                     </div>
                                 </div>
                             </div>
@@ -1042,15 +1046,15 @@
                         <div class="column-5">
                             <button style="background-color: #e28d02" type="button" class="btn btn-custom" id="draft-btn"><i class="dripicons-flag"></i> {{trans('file.Draft')}}</button>
                         </div>
-                        <div class="column-5">
+                        <!-- <div class="column-5">
                             <button style="background-color: #fd7272" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{trans('file.Cheque')}}</button>
-                        </div>
-                        <div class="column-5">
+                        </div> -->
+                        <!-- <div class="column-5">
                             <button style="background-color: #5f27cd" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="gift-card-btn"><i class="fa fa-credit-card-alt"></i> {{trans('file.Gift Card')}}</button>
-                        </div>
-                        <div class="column-5">
+                        </div> -->
+                        <!-- <div class="column-5">
                             <button style="background-color: #b33771" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="deposit-btn"><i class="fa fa-university"></i> {{trans('file.Deposit')}}</button>
-                        </div>
+                        </div> -->
                         @if($lims_reward_point_setting_data->is_active)
                         <!--
                         <div class="column-5">
@@ -1096,13 +1100,13 @@
                                             <label>{{trans('file.Paid By')}}</label>
                                             <select name="paid_by_id_select" class="form-control selectpicker">
                                                 <option value="1">Cash</option>
-                                                <option value="2">Gift Card</option>
+                                                <!-- <option value="2">Gift Card</option> -->
                                                 <option value="3">Credit Card</option>
-                                                <option value="4">Cheque</option>
-                                                <option value="5">Paypal</option>
-                                                <option value="6">Deposit</option>
+                                                <!-- <option value="4">Cheque</option>
+                                                <option value="5">Paypal</option> -->
+                                                <!-- <option value="6">Deposit</option> -->
                                                 @if($lims_reward_point_setting_data->is_active)
-                                                <option value="7">Points</option>
+                                                <!-- <option value="7">Points</option> -->
                                                 @endif
                                             </select>
                                         </div>
@@ -1112,13 +1116,14 @@
                                             <div class="card-errors" role="alert"></div>
                                         </div>
                                         <div class="form-group col-md-12 gift-card">
-                                            <label> {{trans('file.Gift Card')}} *</label>
+                                            <!-- <label> {{trans('file.Gift Card')}} *</label> -->
                                             <input type="hidden" name="gift_card_id">
-                                            <select id="gift_card_id_select" name="gift_card_id_select" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card..."></select>
+                                            <!-- <select id="gift_card_id_select" name="gift_card_id_select" class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Gift Card..."></select> -->
                                         </div>
                                         <div class="form-group col-md-12 cheque">
-                                            <label>{{trans('file.Cheque Number')}} *</label>
-                                            <input type="text" name="cheque_no" class="form-control">
+                                            <!-- <label>{{trans('file.Cheque Number')}} *</label> -->
+                                            <!-- <input type="text" name="cheque_no" class="form-control"> -->
+                                            <input type="hidden" name="cheque_no">
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label>{{trans('file.Payment Note')}}</label>
@@ -1126,10 +1131,10 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                       <div class="col-md-6 form-group">
+                                       <!-- <div class="col-md-6 form-group">
                                             <label>{{trans('file.Sale Note')}}</label>
                                             <textarea rows="3" class="form-control" name="sale_note"></textarea>
-                                        </div>
+                                        </div> -->
                                         <div class="col-md-6 form-group">
                                             <label>{{trans('file.Staff Note')}}</label>
                                             <textarea rows="3" class="form-control" name="staff_note"></textarea>
@@ -1141,12 +1146,11 @@
                                 </div>
                                 <div class="col-md-2 qc" data-initial="1">
                                     <h4><strong>{{trans('file.Quick Cash')}}</strong></h4>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="10" type="button">10</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="20" type="button">20</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="50" type="button">50</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="100" type="button">100</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="500" type="button">500</button>
-                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="1000" type="button">1000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="10000" type="button">10.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="50000" type="button">50.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="100000" type="button">100.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="500000" type="button">500.000</button>
+                                    <button class="btn btn-block btn-primary qc-btn sound-btn" data-amount="1000000" type="button">1.000.000</button>
                                     <button class="btn btn-block btn-danger qc-btn sound-btn" data-amount="0" type="button">{{trans('file.Clear')}}</button>
                                 </div>
                             </div>
@@ -1332,7 +1336,7 @@
                                     <li>
                                         <a href="{{url('my-transactions/'.date('Y').'/'.date('m'))}}"><i class="dripicons-swap"></i> {{trans('file.My Transaction')}}</a>
                                     </li>
-                                    @if(Auth::user()->role_id != 5)
+                                    @if(Auth::user()->role_id == 1)
                                     <li>
                                         <a href="{{url('holidays/my-holiday/'.date('Y').'/'.date('m'))}}"><i class="dripicons-vibrate"></i> {{trans('file.My Holiday')}}</a>
                                     </li>
@@ -2046,7 +2050,7 @@ if(getSavedValue("localStorageQty")) {
 
     product_price.push(parseFloat($('table.order-list tbody tr:nth-child(' + (i + 1) + ')').find('.product_price').val()));
     var quantity = parseFloat($('table.order-list tbody tr:nth-child(' + (i + 1) + ')').find('.qty').val());
-    product_discount.push(parseFloat(localStorageProductDiscount[i] / localStorageQty[i]).toFixed(2));
+    product_discount.push(parseFloat(localStorageProductDiscount[i] / localStorageQty[i]).toFixed(0));
     tax_rate.push(parseFloat($('table.order-list tbody tr:nth-child(' + (i + 1) + ')').find('.tax-rate').val()));
     tax_name.push($('table.order-list tbody tr:nth-child(' + (i + 1) + ')').find('.tax-name').val());
     tax_method.push($('table.order-list tbody tr:nth-child(' + (i + 1) + ')').find('.tax-method').val());
@@ -2787,7 +2791,7 @@ $("#cheque-btn").on("click",function() {
     cheque();
 });
 
-$("#cash-btn").on("click",function() {
+$("#cash-btn").on("click",function() {div.qc
     $('select[name="paid_by_id_select"]').val(1);
     $('.selectpicker').selectpicker('refresh');
     $('div.qc').show();
@@ -2903,11 +2907,11 @@ $('.coupon-btn-close').on("click", function() {
 $(document).on('click', '.qc-btn', function(e) {
     if($(this).data('amount')) {
         if($('.qc').data('initial')) {
-            $('input[name="paying_amount"]').val( $(this).data('amount').toFixed(2) );
+            $('input[name="paying_amount"]').val( $(this).data('amount').toFixed(0) );
             $('.qc').data('initial', 0);
         }
         else {
-            $('input[name="paying_amount"]').val( (parseFloat($('input[name="paying_amount"]').val()) + $(this).data('amount')).toFixed(2) );
+            $('input[name="paying_amount"]').val( (parseFloat($('input[name="paying_amount"]').val()) + $(this).data('amount')).toFixed(0) );
         }
     }
     else
@@ -2916,7 +2920,7 @@ $(document).on('click', '.qc-btn', function(e) {
 });
 
 function change(paying_amount, paid_amount) {
-    $("#change").text( parseFloat(paying_amount - paid_amount).toFixed(2) );
+    $("#change").text( parseFloat(paying_amount - paid_amount).toFixed(0) );
 }
 
 function confirmDelete() {
@@ -3034,7 +3038,7 @@ function addNewProduct(data){
     localStorageProductCode.splice(rowindex, 0, data[1]);
     localStorageSaleUnit.splice(rowindex, 0, temp_unit_name[0]);
     localStorageProductDiscount.splice(rowindex, 0, product_discount[rowindex]);
-    localStorageTaxRate.splice(rowindex, 0, tax_rate[rowindex].toFixed(2));
+    localStorageTaxRate.splice(rowindex, 0, tax_rate[rowindex].toFixed(0));
     localStorageTaxName.splice(rowindex, 0, data[4]);
     localStorageTaxMethod.splice(rowindex, 0, data[5]);
     localStorageTempUnitName.splice(rowindex, 0, data[6]);
@@ -3076,7 +3080,7 @@ function edit(){
     var qty = $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.qty').val();
     $('input[name="edit_qty"]').val(qty);
 
-    $('input[name="edit_discount"]').val(parseFloat(product_discount[rowindex]).toFixed(2));
+    $('input[name="edit_discount"]').val(parseFloat(product_discount[rowindex]).toFixed(0));
 
     var tax_name_all = <?php echo json_encode($tax_name_all) ?>;
     pos = tax_name_all.indexOf(tax_name[rowindex]);
@@ -3102,7 +3106,7 @@ function edit(){
         row_product_price = product_price[rowindex];
         $("#edit_unit").hide();
     }
-    $('input[name="edit_unit_price"]').val(row_product_price.toFixed(2));
+    $('input[name="edit_unit_price"]').val(row_product_price.toFixed(0));
     $('.selectpicker').selectpicker('refresh');
 }
 
@@ -3124,7 +3128,7 @@ function couponDiscount() {
                 else if(value['type'] == 'fixed'){
                     if(parseFloat($('input[name="grand_total"]').val()) >= value['minimum_amount']) {
                         $('input[name="grand_total"]').val($('input[name="grand_total"]').val() - value['amount']);
-                        $('#grand-total').text(parseFloat($('input[name="grand_total"]').val()).toFixed(2));
+                        $('#grand-total').text(parseFloat($('input[name="grand_total"]').val()).toFixed());
                         if(!$('input[name="coupon_active"]').val())
                             alert('Congratulation! You got '+value['amount']+' '+currency+' discount');
                         $(".coupon-check").prop("disabled",true);
@@ -3133,7 +3137,7 @@ function couponDiscount() {
                         $("#coupon-modal").modal('hide');
                         $('input[name="coupon_id"]').val(value['id']);
                         $('input[name="coupon_discount"]').val(value['amount']);
-                        $('#coupon-text').text(parseFloat(value['amount']).toFixed(2));
+                        $('#coupon-text').text(parseFloat(value['amount']).toFixed(0));
                     }
                     else
                         alert('Grand Total is not sufficient for discount! Required '+value['minimum_amount']+' '+currency);
@@ -3143,7 +3147,7 @@ function couponDiscount() {
                     var coupon_discount = grand_total * (value['amount'] / 100);
                     grand_total = grand_total - coupon_discount;
                     $('input[name="grand_total"]').val(grand_total);
-                    $('#grand-total').text(parseFloat(grand_total).toFixed(2));
+                    $('#grand-total').text(parseFloat(grand_total).toFixed(0));
                     if(!$('input[name="coupon_active"]').val())
                             alert('Congratulation! You got '+value['amount']+'% discount');
                     $(".coupon-check").prop("disabled",true);
@@ -3152,7 +3156,7 @@ function couponDiscount() {
                     $("#coupon-modal").modal('hide');
                     $('input[name="coupon_id"]').val(value['id']);
                     $('input[name="coupon_discount"]').val(coupon_discount);
-                    $('#coupon-text').text(parseFloat(coupon_discount).toFixed(2));
+                    $('#coupon-text').text(parseFloat(coupon_discount).toFixed(0));
                 }
             }
         });
@@ -3271,20 +3275,20 @@ function calculateRowProductData(quantity) {
         var sub_total = sub_total_unit * quantity;
     }
 
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.discount-value').val((product_discount[rowindex] * quantity).toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.tax-rate').val(tax_rate[rowindex].toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.net_unit_price').val(net_unit_price.toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.tax-value').val(tax.toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.product-price').text(sub_total_unit.toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.sub-total').text(sub_total.toFixed(2));
-    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.subtotal-value').val(sub_total.toFixed(2));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.discount-value').val((product_discount[rowindex] * quantity).toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.tax-rate').val(tax_rate[rowindex].toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.net_unit_price').val(net_unit_price.toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.tax-value').val(tax.toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.product-price').text(sub_total_unit.toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.sub-total').text(sub_total.toFixed(0));
+    $('table.order-list tbody tr:nth-child(' + (rowindex + 1) + ')').find('.subtotal-value').val(sub_total.toFixed(0));
 
-    localStorageProductDiscount.splice(rowindex, 1, (product_discount[rowindex] * quantity).toFixed(2));
-    localStorageTaxRate.splice(rowindex, 1, tax_rate[rowindex].toFixed(2));
-    localStorageNetUnitPrice.splice(rowindex, 1, net_unit_price.toFixed(2));
-    localStorageTaxValue.splice(rowindex, 1, tax.toFixed(2));
-    localStorageSubTotalUnit.splice(rowindex, 1, sub_total_unit.toFixed(2));
-    localStorageSubTotal.splice(rowindex, 1, sub_total.toFixed(2));
+    localStorageProductDiscount.splice(rowindex, 1, (product_discount[rowindex] * quantity).toFixed(0));
+    localStorageTaxRate.splice(rowindex, 1, tax_rate[rowindex].toFixed(0));
+    localStorageNetUnitPrice.splice(rowindex, 1, net_unit_price.toFixed(0));
+    localStorageTaxValue.splice(rowindex, 1, tax.toFixed(0));
+    localStorageSubTotalUnit.splice(rowindex, 1, sub_total_unit.toFixed(0));
+    localStorageSubTotal.splice(rowindex, 1, sub_total.toFixed(0));
     localStorage.setItem("localStorageProductDiscount", localStorageProductDiscount);
     localStorage.setItem("localStorageTaxRate", localStorageTaxRate);
     localStorage.setItem("localStorageNetUnitPrice", localStorageNetUnitPrice);
@@ -3313,7 +3317,7 @@ function calculateTotal() {
         total_discount += parseFloat($(this).val());
     });
 
-    $('input[name="total_discount"]').val(total_discount.toFixed(2));
+    $('input[name="total_discount"]').val(total_discount.toFixed(0));
 
     //Sum of tax
     var total_tax = 0;
@@ -3321,14 +3325,14 @@ function calculateTotal() {
         total_tax += parseFloat($(this).val());
     });
 
-    $('input[name="total_tax"]').val(total_tax.toFixed(2));
+    $('input[name="total_tax"]').val(total_tax.toFixed(0));
 
     //Sum of subtotal
     var total = 0;
     $(".sub-total").each(function() {
         total += parseFloat($(this).text());
     });
-    $('input[name="total_price"]').val(total.toFixed(2));
+    $('input[name="total_price"]').val(total.toFixed(0));
 
     calculateGrandTotal();
 }
@@ -3351,7 +3355,7 @@ function calculateGrandTotal() {
 
     localStorage.setItem("order-tax-rate-select", order_tax);
     localStorage.setItem("order-discount-type", order_discount_type);
-    $("#discount").text(order_discount.toFixed(2));
+    $("#discount").text(order_discount.toFixed(0));
     $('input[name="order_discount"]').val(order_discount);
     $('input[name="order_discount_type"]').val(order_discount_type);
 
@@ -3362,7 +3366,7 @@ function calculateGrandTotal() {
     item = ++item + '(' + total_qty + ')';
     order_tax = (subtotal - order_discount) * (order_tax / 100);
     var grand_total = (subtotal + order_tax + shipping_cost) - order_discount;
-    $('input[name="grand_total"]').val(grand_total.toFixed(2));
+    $('input[name="grand_total"]').val(grand_total.toFixed(0));
 
     couponDiscount();
     var coupon_discount = parseFloat($('input[name="coupon_discount"]').val());
@@ -3372,12 +3376,12 @@ function calculateGrandTotal() {
 
     $('#item').text(item);
     $('input[name="item"]').val($('table.order-list tbody tr:last').index() + 1);
-    $('#subtotal').text(subtotal.toFixed(2));
-    $('#tax').text(order_tax.toFixed(2));
-    $('input[name="order_tax"]').val(order_tax.toFixed(2));
-    $('#shipping-cost').text(shipping_cost.toFixed(2));
-    $('#grand-total').text(grand_total.toFixed(2));
-    $('input[name="grand_total"]').val(grand_total.toFixed(2));
+    $('#subtotal').text(subtotal.toFixed(0));
+    $('#tax').text(order_tax.toFixed(0));
+    $('input[name="order_tax"]').val(order_tax.toFixed(0));
+    $('#shipping-cost').text(shipping_cost.toFixed(0));
+    $('#grand-total').text(grand_total.toFixed(0));
+    $('input[name="grand_total"]').val(grand_total.toFixed(0));
 }
 
 function hide() {
@@ -3504,6 +3508,7 @@ $('#product-table').DataTable( {
     },
     dom: 'tp'
 });
+
 </script>
 <script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 @endpush

@@ -121,11 +121,14 @@ Route::group(['middleware' => ['common', 'auth', 'active']], function() {
 	Route::get('sales/paypalSuccess', 'SaleController@paypalSuccess');
 	Route::get('sales/paypalPaymentSuccess/{id}', 'SaleController@paypalPaymentSuccess');
 	Route::get('sales/gen_invoice/{id}', 'SaleController@genInvoice')->name('sale.invoice');
+	Route::get('sales/gen_invoice2/{id}', 'SaleController@genInvoice2')->name('sale.invoice2');
 	Route::get('sales/gen_wo/{id}', 'SaleController@genWo')->name('sale.wo');
+	Route::get('sales/gen_wo2/{id}', 'SaleController@genWo2')->name('sale.wo2');
 	Route::post('sales/add_payment', 'SaleController@addPayment')->name('sale.add-payment');
 	Route::get('sales/getpayment/{id}', 'SaleController@getPayment')->name('sale.get-payment');
 	Route::post('sales/updatepayment', 'SaleController@updatePayment')->name('sale.update-payment');
 	Route::post('sales/deletepayment', 'SaleController@deletePayment')->name('sale.delete-payment');
+	Route::post('sales/store2', 'SaleController@store2')->name('sale.store2');
 	Route::get('sales/{id}/create', 'SaleController@createSale');
 	Route::post('sales/deletebyselection', 'SaleController@deleteBySelection');
 	Route::get('sales/print-last-reciept', 'SaleController@printLastReciept')->name('sales.printLastReciept');
