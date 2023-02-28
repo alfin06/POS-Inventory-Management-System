@@ -1052,9 +1052,9 @@
                         <!-- <div class="column-5">
                             <button style="background-color: #5f27cd" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="gift-card-btn"><i class="fa fa-credit-card-alt"></i> {{trans('file.Gift Card')}}</button>
                         </div> -->
-                        <!-- <div class="column-5">
+                        <div class="column-5">
                             <button style="background-color: #b33771" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="deposit-btn"><i class="fa fa-university"></i> {{trans('file.Deposit')}}</button>
-                        </div> -->
+                        </div>
                         @if($lims_reward_point_setting_data->is_active)
                         <!--
                         <div class="column-5">
