@@ -32,7 +32,7 @@
                 <h3>{{trans('file.welcome')}} <span>{{Auth::user()->name}}</span> </h3>
             </div>
             @if(in_array("revenue_profit_summary", $all_permission))
-            <div class="filter-toggle btn-group">
+            <div class="filter-toggle btn-group" style="display:none;">
               <button class="btn btn-secondary date-btn" data-start_date="{{date('Y-m-d')}}" data-end_date="{{date('Y-m-d')}}">{{trans('file.Today')}}</button>
               <button class="btn btn-secondary date-btn" data-start_date="{{date('Y-m-d', strtotime(' -7 day'))}}" data-end_date="{{date('Y-m-d')}}">{{trans('file.Last 7 Days')}}</button>
               <button class="btn btn-secondary date-btn active" data-start_date="{{date('Y').'-'.date('m').'-'.'01'}}" data-end_date="{{date('Y-m-d')}}">{{trans('file.This Month')}}</button>
@@ -43,9 +43,9 @@
         </div>
       </div>
       <!-- Counts Section -->
-      <section class="dashboard-counts">
+      <section class="dashboard-counts"  >
         <div class="container-fluid">
-          <div class="row">
+          <div class="row" style="display:none;">
             @if(in_array("revenue_profit_summary", $all_permission))
             <div class="col-md-12 form-group">
               <div class="row">
@@ -189,7 +189,7 @@
                         </table>
                       </div>
                   </div>
-                  <div role="tabpanel" class="tab-pane fade" id="purchase-latest">
+                  <div role="tabpanel" class="tab-pane fade" id="purchase-latest" >
                       <div class="table-responsive">
                         <table class="table">
                           <thead>
@@ -284,7 +284,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-5" style="display:none;">
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h4>{{trans('file.Best Seller').' '.date('F')}}</h4>
@@ -313,7 +313,7 @@
                   </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="display:none;">
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h4>{{trans('file.Best Seller').' '.date('Y'). '('.trans('file.qty').')'}}</h4>
@@ -342,7 +342,7 @@
                   </div>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6" style="display:none;">
               <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                   <h4>{{trans('file.Best Seller').' '.date('Y') . '('.trans('file.price').')'}}</h4>
