@@ -575,7 +575,7 @@ return [
 	"Today Profit" => "Keuntungan Hari Ini",
 	"Product Revenue" => "Hasil Produk",
 	"Profit" => "Keuntungan",
-	"Full Screen" => "Skrin penuh",
+	"Full Screen" => "Layar penuh",
 	"Send Notification" => "Kirim Pemberitahuan",
 	"Add Currency" => "Tambah Mata Uang",
 	"Update Currency" => "Kemas kini Mata Uang",
