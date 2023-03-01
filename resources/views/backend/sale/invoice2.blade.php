@@ -180,7 +180,11 @@
                 <tr style="border:none;">
                     <td style="width:10%;border:0;text-align:left;" colspan="2">kecuali ada perjanjian.</td>
                     <td style="width:30%;text-align:right;"><b>JUMLAH D.P.P</b></td>
+                    @if($lims_sale_data->paid_amount)
+                    <td style="width:30%;">{{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}</td>
+                    @else
                     <td style="width:30%;">-</td>
+                    @endif
                 </tr>
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2"><b>Terbilang:</b></td>
@@ -194,7 +198,7 @@
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
                     <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
-                    <td style="width:30%;">{{number_format($lims_sale_data->grand_total, 0, ',', '.')}}</td>
+                    <td style="width:30%;">{{number_format(($lims_sale_data->grand_total-$lims_sale_data->paid_amount), 0, ',', '.')}}</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>

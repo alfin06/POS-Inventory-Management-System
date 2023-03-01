@@ -115,7 +115,7 @@ return [
 	"Role" => "Peran",
 	"UserName" => "Username",
 	"Password" => "Kata sandi",
-	"LogIn" => "Log masuk",
+	"LogIn" => "Log In",
 	"Change Password" => "Tukar kata sandi",
 	"Active" => "Aktif",
 	"Customer Group" => "Kumpulan Pelanggan",
