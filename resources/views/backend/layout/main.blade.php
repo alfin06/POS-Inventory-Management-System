@@ -1143,9 +1143,9 @@
             <li class="nav-item">
                     <a rel="nofollow" title="{{trans('file.language')}}" data-toggle="tooltip" class="nav-link dropdown-item"><i class="dripicons-web"></i></a>
                     <ul class="right-sidebar">
-                        <li>
+                        <!-- <li>
                         <a href="{{ url('language_switch/en') }}" class="btn btn-link"> English</a>
-                        </li>
+                        </li> -->
                         <!-- <li>
                         <a href="{{ url('language_switch/es') }}" class="btn btn-link"> Español</a>
                         </li>
