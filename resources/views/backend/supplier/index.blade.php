@@ -26,13 +26,14 @@
             <tbody>
                 @foreach($lims_supplier_all as $key => $supplier)
                 <?php
-                    $returned_amount = DB::table('purchases')
-                                    ->join('return_purchases', 'purchases.id', '=', 'return_purchases.purchase_id')
-                                    ->where([
-                                        ['purchases.supplier_id', $supplier->id],
-                                        ['purchases.payment_status', 1]
-                                    ])
-                                    ->sum('return_purchases.grand_total');
+                    // $returned_amount = DB::table('purchases')
+                    //                 ->leftjoin('return_purchases', 'purchases.id', '=', 'return_purchases.purchase_id')
+                    //                 ->where([
+                    //                     ['purchases.supplier_id', $supplier->id],
+                    //                     ['purchases.payment_status', 1]
+                    //                 ])
+                    //                 ->sum('return_purchases.grand_total');
+                    $returned_amount = 0;
                     $purchaseData = App\Purchase::where([
                                     ['supplier_id', $supplier->id],
                                     ['payment_status', 1]

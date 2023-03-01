@@ -1592,7 +1592,7 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12">
-              <p>&copy; {{$general_setting->site_title}} | {{trans('file.Developed')}} {{trans('file.By')}} <span class="external">{{$general_setting->developed_by}}</span> | Version 1.0</p>
+              <p>&copy; {{$general_setting->site_title}} | {{trans('file.Developed')}} {{trans('file.By')}} <a href="https://finicode.com/" alt="Finicode" target="_blank"><span class="external">{{$general_setting->developed_by}}</span></a> | Version 1.0</p>
             </div>
           </div>
         </div>
