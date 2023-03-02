@@ -3424,7 +3424,7 @@ function cheque() {
 }
 
 function creditCard() {
-    $.getScript( "public/vendor/stripe/checkout.js" );
+    //$.getScript( "public/vendor/stripe/checkout.js" );
     $(".card-element").show();
     $(".card-errors").show();
     $(".cheque").hide();
@@ -3434,7 +3434,7 @@ function creditCard() {
 
 function deposits() {
     if($('input[name="paid_amount"]').val() > deposit[$('#customer_id').val()]){
-        alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
+        //alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
     }
     $('input[name="cheque_no"]').attr('required', false);
     $('#add-payment select[name="gift_card_id_select"]').attr('required', false);

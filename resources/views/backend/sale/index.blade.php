@@ -649,7 +649,7 @@
     });
 
     $('input[name="paying_amount"]').on("input", function() {
-        $(".change").text(parseFloat( $(this).val() - $('input[name="amount"]').val() ).toFixed(2));
+        $(".change").text(parseFloat( $(this).val() - $('input[name="amount"]').val() ).toFixed(0));
     });
 
     $('input[name="amount"]').on("input", function() {
@@ -661,7 +661,7 @@
             alert('Paying amount cannot be bigger than due amount');
             $(this).val('');
         }
-        $(".change").text(parseFloat($('input[name="paying_amount"]').val() - $(this).val()).toFixed(2));
+        $(".change").text(parseFloat($('input[name="paying_amount"]').val() - $(this).val()).toFixed(0));
         var id = $('#add-payment select[name="paid_by_id"]').val();
         var amount = $(this).val();
         if(id == 2){
@@ -723,7 +723,7 @@
     });
 
     $('input[name="edit_paying_amount"]').on("input", function() {
-        $(".change").text(parseFloat( $(this).val() - $('input[name="edit_amount"]').val() ).toFixed(2));
+        $(".change").text(parseFloat( $(this).val() - $('input[name="edit_amount"]').val() ).toFixed(0));
     });
 
     $('input[name="edit_amount"]').on("input", function() {
@@ -731,7 +731,7 @@
             alert('Paying amount cannot be bigger than recieved amount');
             $(this).val('');
         }
-        $(".change").text(parseFloat($('input[name="edit_paying_amount"]').val() - $(this).val()).toFixed(2));
+        $(".change").text(parseFloat($('input[name="edit_paying_amount"]').val() - $(this).val()).toFixed(0));
         var amount = $(this).val();
         var id = $('#edit-payment select[name="gift_card_id"]').val();
         if(amount > balance[id]){
@@ -954,16 +954,16 @@
         if (dt_selector.rows( '.selected' ).any() && is_calling_first) {
             var rows = dt_selector.rows( '.selected' ).indexes();
 
-            $( dt_selector.column( 8 ).footer() ).html(dt_selector.cells( rows, 8, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 9 ).footer() ).html(dt_selector.cells( rows, 9, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 10 ).footer() ).html(dt_selector.cells( rows, 10, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 11 ).footer() ).html(dt_selector.cells( rows, 11, { page: 'current' } ).data().sum().toFixed(2));
+            $( dt_selector.column( 8 ).footer() ).html(dt_selector.cells( rows, 8, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 9 ).footer() ).html(dt_selector.cells( rows, 9, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 10 ).footer() ).html(dt_selector.cells( rows, 10, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 11 ).footer() ).html(dt_selector.cells( rows, 11, { page: 'current' } ).data().sum().toFixed(0));
         }
         else {
-            $( dt_selector.column( 8 ).footer() ).html(dt_selector.cells( rows, 8, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 9 ).footer() ).html(dt_selector.cells( rows, 9, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 10 ).footer() ).html(dt_selector.cells( rows, 10, { page: 'current' } ).data().sum().toFixed(2));
-            $( dt_selector.column( 11 ).footer() ).html(dt_selector.cells( rows, 11, { page: 'current' } ).data().sum().toFixed(2));
+            $( dt_selector.column( 8 ).footer() ).html(dt_selector.cells( rows, 8, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 9 ).footer() ).html(dt_selector.cells( rows, 9, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 10 ).footer() ).html(dt_selector.cells( rows, 10, { page: 'current' } ).data().sum().toFixed(0));
+            $( dt_selector.column( 11 ).footer() ).html(dt_selector.cells( rows, 11, { page: 'current' } ).data().sum().toFixed(0));
         }
     }
 
@@ -990,7 +990,7 @@
                 cols += '<td>' + batch_no[index] + '</td>';
                 cols += '<td>' + qty[index] + '</td>';
                 cols += '<td>' + unit_code[index] + '</td>';
-                cols += '<td>' + parseFloat(subtotal[index] / qty[index]).toFixed(2) + '</td>';
+                cols += '<td>' + parseFloat(subtotal[index] / qty[index]).toFixed(0) + '</td>';
                 cols += '<td>' + tax[index] + '(' + tax_rate[index] + '%)' + '</td>';
                 cols += '<td>' + discount[index] + '</td>';
                 cols += '<td>' + subtotal[index] + '</td>';
@@ -1053,7 +1053,7 @@
             var newRow = $("<tr>");
             cols = '';
             cols += '<td colspan=8><strong>{{trans("file.Due")}}:</strong></td>';
-            cols += '<td>' + parseFloat(sale[21] - sale[22]).toFixed(2) + '</td>';
+            cols += '<td>' + parseFloat(sale[21] - sale[22]).toFixed(0) + '</td>';
             newRow.append(cols);
             newBody.append(newRow);
 
@@ -1069,13 +1069,13 @@
         if( $('input[name="paying_amount"]').val() < parseFloat($('#amount').val()) ) {
             alert('Paying amount cannot be bigger than recieved amount');
             $('input[name="amount"]').val('');
-            $(".change").text(parseFloat( $('input[name="paying_amount"]').val() - $('#amount').val() ).toFixed(2));
+            $(".change").text(parseFloat( $('input[name="paying_amount"]').val() - $('#amount').val() ).toFixed(0));
             e.preventDefault();
         }
         else if( $('input[name="edit_paying_amount"]').val() < parseFloat($('input[name="edit_amount"]').val()) ) {
             alert('Paying amount cannot be bigger than recieved amount');
             $('input[name="edit_amount"]').val('');
-            $(".change").text(parseFloat( $('input[name="edit_paying_amount"]').val() - $('input[name="edit_amount"]').val() ).toFixed(2));
+            $(".change").text(parseFloat( $('input[name="edit_paying_amount"]').val() - $('input[name="edit_amount"]').val() ).toFixed(0));
             e.preventDefault();
         }
 

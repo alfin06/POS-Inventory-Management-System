@@ -1229,7 +1229,7 @@ class SaleController extends Controller
             }
 
             //Change the last number
-            $current = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $current = LastNumber::where('invoice_type', 'Berkat Furniture')->first();
             $currentMonth = date('m');
             if ($current->invoice_month != $currentMonth)
             {
@@ -1250,7 +1250,7 @@ class SaleController extends Controller
         if($lims_sale_data->sale_status == '1')
         {
             //Change the last number
-            $current = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $current = LastNumber::where('invoice_type', 'Berkat Furniture')->first();
             $currentMonth = date('m');
             if ($current->invoice_month != $currentMonth)
             {
@@ -1704,7 +1704,7 @@ class SaleController extends Controller
             }
             $lims_coupon_list = Coupon::where('is_active',true)->get();
             $flag = 0;
-            $last_number = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
+            $last_number = LastNumber::where('invoice_type', 'Berkat Furniture')->first();
             $currentMonth = date('n');
             $currentDate = date('d');
             $currentYear = date('Y');
