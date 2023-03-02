@@ -16,20 +16,20 @@
     <div class="container-fluid">
         @if(in_array("customers-add", $all_permission))
             <a href="{{route('customer.create')}}" class="btn btn-info"><i class="dripicons-plus"></i> {{trans('file.Add Customer')}}</a>&nbsp;
-            <a href="#" data-toggle="modal" data-target="#importCustomer" class="btn btn-primary"><i class="dripicons-copy"></i> {{trans('file.Import Customer')}}</a>
+            <a href="#" data-toggle="modal" data-target="#importCustomer" class="btn btn-primary" style="display:none;"><i class="dripicons-copy"></i> {{trans('file.Import Customer')}}</a>
         @endif
     </div>
     <div class="table-responsive">
-        <table id="customer-table" class="table">
+        <table id="customer-table" class="table col-12" style="width:100%;">
             <thead>
                 <tr>
                     <th class="not-exported"></th>
                     <th>{{trans('file.Customer Group')}}</th>
                     <th>{{trans('file.Customer Details')}}</th>
-                    <th>{{trans('file.Discount Plan')}}</th>
-                    <th>{{trans('file.Reward Points')}}</th>
-                    <th>{{trans('file.Deposited Balance')}}</th>
-                    <th>{{trans('file.Total Due')}}</th>
+                    <th style="display:none;">{{trans('file.Discount Plan')}}</th>
+                    <th style="display:none;">{{trans('file.Reward Points')}}</th>
+                    <th style="display:none;">{{trans('file.Deposited Balance')}}</th>
+                    <th style="display:none;">{{trans('file.Total Due')}}</th>
                     <th class="not-exported">{{trans('file.action')}}</th>
                 </tr>
             </thead>
@@ -64,7 +64,7 @@
                         <br>{{$customer->phone_number}}
                         <br>{{$customer->address}}, {{$customer->city}}@if($customer->country) {{','.$customer->country}}@endif
                     </td>
-                    <td>
+                    <td style="display:none;">
                         @foreach($customer->discountPlans as $index => $discount_plan)
                             @if($index)
                                 {{', '.$discount_plan->name}}
@@ -73,9 +73,9 @@
                             @endif
                         @endforeach
                     </td>
-                    <td>{{$customer->points}}</td>
-                    <td>{{number_format($customer->deposit - $customer->expense, 2)}}</td>
-                    <td>{{number_format($saleData->grand_total - $returned_amount - $saleData->paid_amount, 2)}}</td>
+                    <td style="display:none;">{{$customer->points}}</td>
+                    <td style="display:none;">{{number_format($customer->deposit - $customer->expense, 2)}}</td>
+                    <td style="display:none;">{{number_format($saleData->grand_total - $returned_amount - $saleData->paid_amount, 2)}}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{trans('file.action')}}
@@ -89,7 +89,7 @@
                                 </li>
                                 @endif
                                 @if(in_array("due-report", $all_permission))
-                                <li>
+                                <li style="display:none;">
                                     {!! Form::open(['route' => 'report.customerDueByDate', 'method' => 'post', 'id' => 'due-report-form']) !!}
                                     <input type="hidden" name="start_date" value="{{date('Y-m-d', strtotime('-30 year'))}}" />
                                     <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
@@ -98,13 +98,13 @@
                                     {!! Form::close() !!}
                                 </li>
                                 @endif
-                                <li>
+                                <li style="display:none;">
                                     <button type="button" data-id="{{$customer->id}}" class="clear-due btn btn-link" data-toggle="modal" data-target="#clearDueModal" ><i class="dripicons-brush"></i> {{trans('file.Clear Due')}}</button>
                                 </li>
-                                <li>
+                                <li style="display:none;">
                                     <button type="button" data-id="{{$customer->id}}" class="deposit btn btn-link" data-toggle="modal" data-target="#depositModal" ><i class="dripicons-plus"></i> {{trans('file.Add Deposit')}}</button>
                                 </li>
-                                <li>
+                                <li style="display:none;">
                                     <button type="button" data-id="{{$customer->id}}" class="getDeposit btn btn-link"><i class="fa fa-money"></i> {{trans('file.View Deposit')}}</button>
                                 </li>
                                 <li class="divider"></li>
@@ -433,11 +433,11 @@
                         alert('This feature is disable for demo!');
                 }
             },
-            {
-                extend: 'colvis',
-                text: '<i title="column visibility" class="fa fa-eye"></i>',
-                columns: ':gt(0)'
-            },
+            // {
+            //     extend: 'colvis',
+            //     text: '<i title="column visibility" class="fa fa-eye"></i>',
+            //     columns: ':gt(0)'
+            // },
         ],
     } );
 

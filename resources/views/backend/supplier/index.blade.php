@@ -9,17 +9,17 @@
     <div class="container-fluid">
         @if(in_array("suppliers-add", $all_permission))
         <a href="{{route('supplier.create')}}" class="btn btn-info"><i class="dripicons-plus"></i> {{trans('file.Add Supplier')}}</a>
-        <a href="#" data-toggle="modal" data-target="#importSupplier" class="btn btn-primary"><i class="dripicons-copy"></i> {{trans('file.Import Supplier')}}</a>
+        <a href="#" data-toggle="modal" data-target="#importSupplier" class="btn btn-primary" style="display:none;"><i class="dripicons-copy"></i> {{trans('file.Import Supplier')}}</a>
         @endif
     </div>
     <div class="table-responsive">
-        <table id="supplier-table" class="table">
+        <table id="supplier-table" class="table" style="width:100%;">
             <thead>
                 <tr>
                     <th class="not-exported"></th>
                     <th>{{trans('file.Image')}}</th>
                     <th>{{trans('file.Supplier Details')}}</th>
-                    <th>{{trans('file.Total Due')}}</th>
+                    <th style="display:none;">{{trans('file.Total Due')}}</th>
                     <th class="not-exported">{{trans('file.action')}}</th>
                 </tr>
             </thead>
@@ -62,7 +62,7 @@
                             @if($supplier->postal_code){{','.$supplier->postal_code}}@endif
                             @if($supplier->country){{','.$supplier->country}}@endif
                     </td>
-                    <td>{{number_format($purchaseData->grand_total - $returned_amount - $purchaseData->paid_amount, 2)}}</td>
+                    <td style="display:none;">{{number_format($purchaseData->grand_total - $returned_amount - $purchaseData->paid_amount, 2)}}</td>
                     <td>
                         <div class="btn-group">
                             <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{trans('file.action')}}
@@ -76,7 +76,7 @@
                                 </li>
                                 @endif
                                 @if(in_array("supplier-due-report", $all_permission))
-                                <li>
+                                <li style="display:none;">
                                     {!! Form::open(['route' => 'report.supplierDueByDate', 'method' => 'post', 'id' => 'supplier-due-report-form']) !!}
                                     <input type="hidden" name="start_date" value="{{date('Y-m-d', strtotime('-30 year'))}}" />
                                     <input type="hidden" name="end_date" value="{{date('Y-m-d')}}" />
@@ -85,7 +85,7 @@
                                     {!! Form::close() !!}
                                 </li>
                                 @endif
-                                <li>
+                                <li style="display:none;">
                                     <button type="button" data-id="{{$supplier->id}}" class="clear-due btn btn-link" data-toggle="modal" data-target="#clearDueModal" ><i class="dripicons-brush"></i> {{trans('file.Clear Due')}}</button>
                                 </li>
                                 <li class="divider"></li>
@@ -326,11 +326,11 @@
                         alert('This feature is disable for demo!');
                 }
             },
-            {
-                extend: 'colvis',
-                text: '<i title="column visibility" class="fa fa-eye"></i>',
-                columns: ':gt(0)'
-            },
+            // {
+            //     extend: 'colvis',
+            //     text: '<i title="column visibility" class="fa fa-eye"></i>',
+            //     columns: ':gt(0)'
+            // },
         ],
     } );
 
