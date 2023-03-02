@@ -97,7 +97,7 @@
             ?>
             @if($add_permission_active)
             <li id="purchase-create-menu"><a href="{{route('purchases.create')}}">{{trans('file.Add Purchase')}}</a></li>
-            <li id="purchase-import-menu"><a href="{{url('purchases/purchase_by_csv')}}">{{trans('file.Import Purchase By CSV')}}</a></li>
+            <!-- <li id="purchase-import-menu"><a href="{{url('purchases/purchase_by_csv')}}">{{trans('file.Import Purchase By CSV')}}</a></li> -->
             @endif
         </ul>
         </li>
@@ -134,9 +134,10 @@
             ])->first();
             ?>
             @if($add_permission_active)
-            <li><a href="{{route('sale.pos')}}">POS</a></li>
+            <li><a href="{{route('sale.pos')}}">CV. HPL Indonesia</a></li>
+            <li><a href="{{route('sale.pos2')}}">Berkat Furniture</a></li>
             <li id="sale-create-menu"><a href="{{route('sales.create')}}">{{trans('file.Add Sale')}}</a></li>
-            <li id="sale-import-menu"><a href="{{url('sales/sale_by_csv')}}">{{trans('file.Import Sale By CSV')}}</a></li>
+            <!-- <li id="sale-import-menu"><a href="{{url('sales/sale_by_csv')}}">{{trans('file.Import Sale By CSV')}}</a></li> -->
             @endif
             @endif
             @if($gift_card_permission_active)
@@ -145,7 +146,7 @@
             @if($coupon_permission_active)
             <li id="coupon-menu"><a href="{{route('coupons.index')}}">{{trans('file.Coupon List')}}</a> </li>
             @endif
-            <li id="delivery-menu"><a href="{{route('delivery.index')}}">{{trans('file.Delivery List')}}</a></li>
+            <!-- <li id="delivery-menu"><a href="{{route('delivery.index')}}">{{trans('file.Delivery List')}}</a></li> -->
         </ul>
         </li>
         <?php
@@ -820,7 +821,7 @@
                 @endif
             </ul>
         </li>
-        @if(Auth::user()->role_id != 5)
+        @if(Auth::user()->role_id == 1)
         <li><a href="{{url('public/read_me')}}"> <i class="dripicons-information"></i><span>{{trans('file.Documentation')}}</span></a></li>
         @endif
     </ul>

@@ -198,7 +198,7 @@
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
                     <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
-                    <td style="width:30%;">{{number_format(($lims_sale_data->grand_total-$lims_sale_data->paid_amount), 0, ',', '.')}}</td>
+                    <td style="width:30%;">{{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>
