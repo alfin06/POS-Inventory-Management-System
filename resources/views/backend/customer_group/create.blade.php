@@ -14,7 +14,7 @@
 <section>
     <div class="container-fluid">
         <a href="#" data-toggle="modal" data-target="#createModal" class="btn btn-info"><i class="dripicons-plus"></i> {{trans('file.Add Customer Group')}}</a>
-        <a href="#" data-toggle="modal" data-target="#importcustomer_group" class="btn btn-primary"><i class="dripicons-copy"></i> {{trans('file.Import Customer Group')}}</a>
+        <a href="#" data-toggle="modal" data-target="#importcustomer_group" class="btn btn-primary" style="display:none;"><i class="dripicons-copy"></i> {{trans('file.Import Customer Group')}}</a>
     </div>
     <div class="table-responsive">
         <table id="customer-grp-table" class="table">
@@ -287,11 +287,11 @@
                         alert('This feature is disable for demo!');
                 }
             },
-            {
-                extend: 'colvis',
-                text: '<i title="column visibility" class="fa fa-eye"></i>',
-                columns: ':gt(0)'
-            },
+            // {
+            //     extend: 'colvis',
+            //     text: '<i title="column visibility" class="fa fa-eye"></i>',
+            //     columns: ':gt(0)'
+            // },
         ],
     } );
 
