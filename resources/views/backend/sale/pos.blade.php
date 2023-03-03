@@ -1044,9 +1044,9 @@
                             <button style="background-color: #213170" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="paypal-btn"><i class="fa fa-paypal"></i> {{trans('file.PayPal')}}</button>
                         </div>
                         -->
-                        <div class="column-5">
+                        <!-- <div class="column-5">
                             <button style="background-color: #e28d02" type="button" class="btn btn-custom" id="draft-btn"><i class="dripicons-flag"></i> {{trans('file.Draft')}}</button>
-                        </div>
+                        </div> -->
                         <!-- <div class="column-5">
                             <button style="background-color: #fd7272" type="button" class="btn btn-custom payment-btn" data-toggle="modal" data-target="#add-payment" id="cheque-btn"><i class="fa fa-money"></i> {{trans('file.Cheque')}}</button>
                         </div> -->
@@ -1739,30 +1739,30 @@
                                           <td>{{trans('file.Credit Card Payment')}}:</td>
                                           <td id="credit_card_payment" class="text-right"></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                           <td>{{trans('file.Cheque Payment')}}:</td>
                                           <td id="cheque_payment" class="text-right"></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                           <td>{{trans('file.Gift Card Payment')}}:</td>
                                           <td id="gift_card_payment" class="text-right"></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                           <td>{{trans('file.Deposit Payment')}}:</td>
                                           <td id="deposit_payment" class="text-right"></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                           <td>{{trans('file.Paypal Payment')}}:</td>
                                           <td id="paypal_payment" class="text-right"></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                           <td>{{trans('file.Total Sale Return')}}:</td>
                                           <td id="total_sale_return" class="text-right"></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                           <td>{{trans('file.Total Expense')}}:</td>
                                           <td id="total_expense" class="text-right"></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                           <td><strong>{{trans('file.Total Cash')}}:</strong></td>
                                           <td id="total_cash" class="text-right"></td>
@@ -1808,34 +1808,34 @@
                                           <td>{{trans('file.Credit Card Payment')}}:</td>
                                           <td class="credit_card_payment text-right"></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                           <td>{{trans('file.Cheque Payment')}}:</td>
                                           <td class="cheque_payment text-right"></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                           <td>{{trans('file.Gift Card Payment')}}:</td>
                                           <td class="gift_card_payment text-right"></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                           <td>{{trans('file.Deposit Payment')}}:</td>
                                           <td class="deposit_payment text-right"></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                           <td>{{trans('file.Paypal Payment')}}:</td>
                                           <td class="paypal_payment text-right"></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                           <td>{{trans('file.Total Payment')}}:</td>
                                           <td class="total_payment text-right"></td>
                                         </tr>
-                                        <tr>
+                                        <!-- <tr>
                                           <td>{{trans('file.Total Sale Return')}}:</td>
                                           <td class="total_sale_return text-right"></td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                           <td>{{trans('file.Total Expense')}}:</td>
                                           <td class="total_expense text-right"></td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                           <td><strong>{{trans('file.Total Cash')}}:</strong></td>
                                           <td class="total_cash text-right"></td>
@@ -2178,12 +2178,12 @@ if(keyboard_active==1){
               $('#register-details-modal #total_payment').text(data['total_payment']);
               $('#register-details-modal #cash_payment').text(data['cash_payment']);
               $('#register-details-modal #credit_card_payment').text(data['credit_card_payment']);
-              $('#register-details-modal #cheque_payment').text(data['cheque_payment']);
-              $('#register-details-modal #gift_card_payment').text(data['gift_card_payment']);
+              //$('#register-details-modal #cheque_payment').text(data['cheque_payment']);
+              //$('#register-details-modal #gift_card_payment').text(data['gift_card_payment']);
               $('#register-details-modal #deposit_payment').text(data['deposit_payment']);
-              $('#register-details-modal #paypal_payment').text(data['paypal_payment']);
-              $('#register-details-modal #total_sale_return').text(data['total_sale_return']);
-              $('#register-details-modal #total_expense').text(data['total_expense']);
+              //$('#register-details-modal #paypal_payment').text(data['paypal_payment']);
+              //$('#register-details-modal #total_sale_return').text(data['total_sale_return']);
+              //$('#register-details-modal #total_expense').text(data['total_expense']);
               $('#register-details-modal #total_cash').text(data['total_cash']);
               $('#register-details-modal input[name=cash_register_id]').val(data['id']);
           }
@@ -2201,12 +2201,12 @@ if(keyboard_active==1){
               $('#today-sale-modal .total_payment').text(data['total_payment']);
               $('#today-sale-modal .cash_payment').text(data['cash_payment']);
               $('#today-sale-modal .credit_card_payment').text(data['credit_card_payment']);
-              $('#today-sale-modal .cheque_payment').text(data['cheque_payment']);
-              $('#today-sale-modal .gift_card_payment').text(data['gift_card_payment']);
+              //$('#today-sale-modal .cheque_payment').text(data['cheque_payment']);
+              //$('#today-sale-modal .gift_card_payment').text(data['gift_card_payment']);
               $('#today-sale-modal .deposit_payment').text(data['deposit_payment']);
-              $('#today-sale-modal .paypal_payment').text(data['paypal_payment']);
-              $('#today-sale-modal .total_sale_return').text(data['total_sale_return']);
-              $('#today-sale-modal .total_expense').text(data['total_expense']);
+              //$('#today-sale-modal .paypal_payment').text(data['paypal_payment']);
+              //$('#today-sale-modal .total_sale_return').text(data['total_sale_return']);
+              //$('#today-sale-modal .total_expense').text(data['total_expense']);
               $('#today-sale-modal .total_cash').text(data['total_cash']);
           }
       });

@@ -776,25 +776,6 @@ class SaleController extends Controller
                 $lims_customer_data->points -= $data['used_points'];
                 $lims_customer_data->save();
             }
-
-            //Change the last number
-            $current = LastNumber::where('invoice_type', 'CV. HPL Indonesia')->first();
-            $currentMonth = date('m');
-            if ($current->invoice_month != $currentMonth)
-            {
-                $last['invoice_month'] = $currentMonth;
-                $last['invoice_number'] = 1;
-                LastNumber::where([
-                    ['invoice_type', 'CV. HPL Indonesia']
-                ])->update($last);
-            }
-            else
-            {
-                $last['invoice_number'] = $current->invoice_number + 1;
-                LastNumber::where([
-                    ['invoice_type', 'CV. HPL Indonesia']
-                ])->update($last);
-            }
         }
         if($lims_sale_data->sale_status == '1')
         {
@@ -1226,25 +1207,6 @@ class SaleController extends Controller
             elseif($paying_method == 'Points'){
                 $lims_customer_data->points -= $data['used_points'];
                 $lims_customer_data->save();
-            }
-
-            //Change the last number
-            $current = LastNumber::where('invoice_type', 'Berkat Furniture')->first();
-            $currentMonth = date('m');
-            if ($current->invoice_month != $currentMonth)
-            {
-                $last['invoice_month'] = $currentMonth;
-                $last['invoice_number'] = 1;
-                LastNumber::where([
-                    ['invoice_type', 'Berkat Furniture']
-                ])->update($last);
-            }
-            else
-            {
-                $last['invoice_number'] = $current->invoice_number + 1;
-                LastNumber::where([
-                    ['invoice_type', 'Berkat Furniture']
-                ])->update($last);
             }
         }
         if($lims_sale_data->sale_status == '1')

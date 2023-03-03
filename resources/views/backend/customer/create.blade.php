@@ -16,7 +16,7 @@
                         <div class="row">
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <input type="hidden" name="both" value="1" />
+                                    <input type="hidden" name="both" />
                                     <!-- <input type="checkbox" name="both" value="1" />&nbsp;
                                     <label>{{trans('file.Both Customer and Supplier')}}</label> -->
                                 </div>
@@ -108,7 +108,7 @@
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <input type="hidden" name="user" value="1" />
+                                    <input type="hidden" name="user" />
                                     <!-- <input type="checkbox" name="user" value="1" />&nbsp;
                                     <label>{{trans('file.Add User')}}</label> -->
                                 </div>

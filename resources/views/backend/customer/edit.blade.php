@@ -89,7 +89,7 @@
                                 <div class="form-group">
                                     <!-- <label>{{trans('file.Add User')}}</label>&nbsp;
                                     <input type="checkbox" name="user" value="1" /> -->
-                                    <input type="hidden" name="user" value="1" />
+                                    <input type="hidden" name="user" />
                                 </div>
                             </div>
                             @endif
