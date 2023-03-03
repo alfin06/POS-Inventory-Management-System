@@ -16,8 +16,9 @@
                         <div class="row">
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <input type="checkbox" name="both" value="1" />&nbsp;
-                                    <label>{{trans('file.Both Customer and Supplier')}}</label>
+                                    <input type="hidden" name="both" value="1" />
+                                    <!-- <input type="checkbox" name="both" value="1" />&nbsp;
+                                    <label>{{trans('file.Both Customer and Supplier')}}</label> -->
                                 </div>
                             </div>
                             <div class="col-md-4 customer-group-section">
@@ -90,13 +91,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.City')}} *</label>
-                                    <input type="text" name="city" required class="form-control">
+                                    <input type="text" name="city" required class="form-control" value="Tangerang">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.State')}}</label>
-                                    <input type="text" name="state" class="form-control">
+                                    <input type="text" name="state" class="form-control" value="Banten">
                                 </div>
                             </div>
                             <div class="col-md-4">

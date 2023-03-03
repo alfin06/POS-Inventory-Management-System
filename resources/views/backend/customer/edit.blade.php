@@ -87,8 +87,9 @@
                             @if(!$lims_customer_data->user_id)
                             <div class="col-md-6 mt-3">
                                 <div class="form-group">
-                                    <label>{{trans('file.Add User')}}</label>&nbsp;
-                                    <input type="checkbox" name="user" value="1" />
+                                    <!-- <label>{{trans('file.Add User')}}</label>&nbsp;
+                                    <input type="checkbox" name="user" value="1" /> -->
+                                    <input type="hidden" name="user" value="1" />
                                 </div>
                             </div>
                             @endif
