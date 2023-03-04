@@ -58,9 +58,9 @@
                         <br>{{$supplier->email}}
                         <br>{{$supplier->phone_number}}
                         <br>{{$supplier->address}}, {{$supplier->city}}
-                            @if($supplier->state){{','.$supplier->state}}@endif
-                            @if($supplier->postal_code){{','.$supplier->postal_code}}@endif
-                            @if($supplier->country){{','.$supplier->country}}@endif
+                            @if($supplier->state){{', '.$supplier->state}}@endif
+                            @if($supplier->postal_code){{', '.$supplier->postal_code}}@endif
+                            @if($supplier->country){{', '.$supplier->country}}@endif
                     </td>
                     <td style="display:none;">{{number_format($purchaseData->grand_total - $returned_amount - $purchaseData->paid_amount, 2)}}</td>
                     <td>

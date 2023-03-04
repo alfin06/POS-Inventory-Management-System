@@ -42,10 +42,11 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="display:none;">
                                 <div class="form-group">
-                                    <label>{{trans('file.VAT Number')}}</label>
-                                    <input type="text" name="vat_number" value="{{$lims_supplier_data->vat_number}}" class="form-control">
+                                    <!-- <label>{{trans('file.VAT Number')}}</label>
+                                    <input type="text" name="vat_number" value="{{$lims_supplier_data->vat_number}}" class="form-control"> -->
+                                    <input type="hidden" name="vat_number" value="{{$lims_supplier_data->vat_number}}">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -89,10 +90,11 @@
                                     <input type="text" name="postal_code" value="{{$lims_supplier_data->postal_code}}" class="form-control">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" style="display:none;">
                                 <div class="form-group">
-                                    <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" value="{{$lims_supplier_data->country}}" class="form-control">
+                                    <!-- <label>{{trans('file.Country')}}</label>
+                                    <input type="text" name="country" value="{{$lims_supplier_data->country}}" class="form-control"> -->
+                                    <input type="hidden" name="country" value="{{$lims_supplier_data->country}}">
                                 </div>
                             </div>
                             <div class="col-md-12">

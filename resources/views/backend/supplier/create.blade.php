@@ -14,7 +14,7 @@
                         <p class="italic"><small>{{trans('file.The field labels marked with * are required input fields')}}.</small></p>
                         {!! Form::open(['route' => 'supplier.store', 'method' => 'post', 'files' => true]) !!}
                         <div class="row">
-                            <div class="col-md-4 mt-4">
+                            <div class="col-md-4 mt-4" style="display:none;">
                                 <div class="form-group">
                                     <input type="hidden" name="both" />
                                     <!-- <input type="checkbox" name="both" value="1" />&nbsp;
@@ -59,16 +59,17 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-4" style="display:none;">
                                 <div class="form-group">
-                                    <label>{{trans('file.VAT Number')}}</label>
-                                    <input type="text" name="vat_number" class="form-control">
+                                    <!-- <label>{{trans('file.VAT Number')}}</label>
+                                    <input type="text" name="vat_number" class="form-control"> -->
+                                    <input type="hidden" name="vat_number">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.Email')}} *</label>
-                                    <input type="email" name="email" placeholder="example@example.com" required class="form-control">
+                                    <input type="email" name="email" placeholder="example@example.com" required class="form-control" value="admin@finicode.com">
                                     @if($errors->has('email'))
                                    <span>
                                        <strong>{{ $errors->first('email') }}</strong>
@@ -108,8 +109,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" class="form-control" value="Indonesia">
+                                    <!-- <label>{{trans('file.Country')}}</label>
+                                    <input type="text" name="country" class="form-control" value="Indonesia"> -->
+                                    <input type="hidden" name="country" value="Indonesia">
                                 </div>
                             </div>
                             <div class="col-md-12">
