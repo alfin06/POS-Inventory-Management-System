@@ -441,7 +441,7 @@ return [
 	"Image name must be same as product name" => "Nama imej mestilah sama seperti nama produk", 
 	"Paying Amount" => "Total Biaya",
 	"Payable Amount" => "Jumlah yang Dibayar",
-	"Change" => "Ubah",
+	"Change" => "Kembalian",
 	"Back" => "Kembali",
 	"Role Permission" => "Akses Peran",
 	"Exclusive: Poduct price = Actual product price + Tax. Inclusive: Actual product price = Product price - Tax" => "Eksklusif: Harga Poduct = Harga produk sebenar + pajak. Termasuk: Harga produk sebenar = Harga produk - pajak",

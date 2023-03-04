@@ -1550,7 +1550,7 @@
                         </div>
                         <div class="form-group">
                             <label>{{trans('file.Email')}}</label>
-                            <input type="text" name="email" placeholder="example@example.com" class="form-control">
+                            <input type="text" name="email" placeholder="example@example.com" class="form-control" value="admin@finicode.com">
                         </div>
                         <div class="form-group">
                             <label>{{trans('file.Phone Number')}} *</label>
@@ -2881,7 +2881,7 @@ $('input[name="paid_amount"]').on("input", function() {
     }
     else if(id == 6){
         if( $('input[name="paid_amount"]').val() > deposit[$('#customer_id').val()] )
-            alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
+            //alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
     }
 });
 
