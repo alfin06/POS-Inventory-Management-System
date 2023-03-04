@@ -158,7 +158,7 @@ return [
 	"Permissions" => "Akses",
 	"Percentage" => "Peratusan",
 	"Title" => "Nama",
-	"Base Unit" => "Unit Asas",
+	"Base Unit" => "Unit Dasar",
 	"Operator" => "Pengendali",
 	"Operation Value" => "Nilai Operasi",
 	"Rate" => "Rate",

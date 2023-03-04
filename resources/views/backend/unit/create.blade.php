@@ -102,8 +102,9 @@
                         <label>{{trans('file.name')}} *</label>
                         {{Form::text('unit_name',null,array('required' => 'required', 'class' => 'form-control'))}}
                     </div>
-                    <div class="form-group">
-                        <label>{{trans('file.Base Unit')}}</label>
+                    <div class="form-group" style="display:none;">
+                        <input type="hidden" id="base_unit_create" name="base_unit" value="" />
+                        <!-- <label>{{trans('file.Base Unit')}}</label>
                         <select class="form-control selectpicker" id="base_unit_create" name="base_unit">
                             <option value="">No Base Unit</option>
                             @foreach($lims_unit_all as $unit)
@@ -111,7 +112,7 @@
                                 <option value="{{$unit->id}}">{{$unit->unit_name}}</option>
                                 @endif
                             @endforeach
-                        </select>
+                        </select> -->
                     </div>
                     <div class="form-group operator">
                         <label>{{trans('file.Operator')}}</label> <input type="text" name="operator" placeholder="Enter your Name" class="form-control" />
@@ -147,8 +148,9 @@
                     <label>{{trans('file.name')}} *</label>
                     {{Form::text('unit_name',null,array('required' => 'required', 'class' => 'form-control'))}}
                 </div>
-                <div class="form-group">
-                    <label>{{trans('file.Base Unit')}}</label>
+                <div class="form-group" style="display:none;">
+                    <input type="hidden" id="base_unit_edit" name="base_unit" value="" />
+                    <!-- <label>{{trans('file.Base Unit')}}</label>
                     <select class="form-control selectpicker" id="base_unit_edit" name="base_unit">
                         <option value="">No Base Unit</option>
                         @foreach($lims_unit_all as $unit)
@@ -156,7 +158,7 @@
                             <option value="{{$unit->id}}">{{$unit->unit_name}}</option>
                             @endif
                         @endforeach
-                    </select>
+                    </select> -->
                 </div>
                 <div class="form-group operator">
                     <label>{{trans('file.Operator')}}</label> <input type="text" name="operator" placeholder="Enter your Name" class="form-control" />
