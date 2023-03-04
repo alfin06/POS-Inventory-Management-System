@@ -101,7 +101,7 @@ return [
 	"Created By" => "Dicipta oleh",
 	"Amount" => "Jumlah",
 	"Staff" => "Kakitangan",
-	"Quotation" => "Sebutharga",
+	"Quotation" => "Quotation",
 	"Create" => "Buat",
 	"Adjustment" => "Pelarasan",
 	"Subtraction" => "Penolakan",
