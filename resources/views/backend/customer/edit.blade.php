@@ -95,8 +95,9 @@
                             @endif
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" value="{{$lims_customer_data->country}}" class="form-control">
+                                    <!-- <label>{{trans('file.Country')}}</label>
+                                    <input type="text" name="country" value="{{$lims_customer_data->country}}" class="form-control"> -->
+                                    <input type="hidden" name="country" value="{{$lims_customer_data->country}}">
                                 </div>
                             </div>
                             <div class="col-md-6 user-input">

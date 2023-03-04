@@ -51,7 +51,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.Email')}} <span class="asterisk">*</span></label>
-                                    <input type="email" name="email" placeholder="example@example.com" class="form-control">
+                                    <input type="email" name="email" placeholder="example@example.com" class="form-control" value="admin@finicode.com">
                                     @if($errors->has('email'))
                                    <span>
                                        <strong>{{ $errors->first('email') }}</strong>
@@ -73,13 +73,14 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.Tax Number')}}</label>
-                                    <input type="text" name="tax_no" class="form-control">
+                                    <input type="text" name="tax_no" class="form-control" value="-">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>{{trans('file.Address')}} *</label>
                                     <input type="text" name="address" required class="form-control">
+                                    <input type="hidden" name="tax_no" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -102,8 +103,9 @@
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>{{trans('file.Country')}}</label>
-                                    <input type="text" name="country" class="form-control" value="Indonesia">
+                                    <!-- <label>{{trans('file.Country')}}</label>
+                                    <input type="text" name="country" class="form-control" value="Indonesia"> -->
+                                    <input type="hidden" name="country" value="Indonesia">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">

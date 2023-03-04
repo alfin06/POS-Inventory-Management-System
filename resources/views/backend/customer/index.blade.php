@@ -62,7 +62,7 @@
                         <br>{{$customer->email}}
                         @endif
                         <br>{{$customer->phone_number}}
-                        <br>{{$customer->address}}, {{$customer->city}}@if($customer->country) {{','.$customer->country}}@endif
+                        <br>{{$customer->address}}, {{$customer->city}}@if($customer->country) {{', '.$customer->country}}@endif
                     </td>
                     <td style="display:none;">
                         @foreach($customer->discountPlans as $index => $discount_plan)
