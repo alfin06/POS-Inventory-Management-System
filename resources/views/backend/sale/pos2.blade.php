@@ -2881,7 +2881,7 @@ $('input[name="paid_amount"]').on("input", function() {
     }
     else if(id == 6){
         if( $('input[name="paid_amount"]').val() > deposit[$('#customer_id').val()] )
-            //alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
+            alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
     }
 });
 
@@ -3511,5 +3511,4 @@ $('#product-table').DataTable( {
 });
 
 </script>
-<script type="text/javascript" src="https://js.stripe.com/v3/"></script>
 @endpush
