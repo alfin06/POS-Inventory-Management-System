@@ -136,7 +136,7 @@
             @if($add_permission_active)
             <li><a href="{{route('sale.pos')}}">CV. HPL Indonesia</a></li>
             <li><a href="{{route('sale.pos2')}}">Berkat Furniture</a></li>
-            <li id="sale-create-menu"><a href="{{route('sales.create')}}">{{trans('file.Add Sale')}}</a></li>
+            <!-- <li id="sale-create-menu"><a href="{{route('sales.create')}}">{{trans('file.Add Sale')}}</a></li> -->
             <!-- <li id="sale-import-menu"><a href="{{url('sales/sale_by_csv')}}">{{trans('file.Import Sale By CSV')}}</a></li> -->
             @endif
             @endif
