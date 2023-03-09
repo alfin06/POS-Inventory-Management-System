@@ -151,9 +151,9 @@
                   <!-- <li class="nav-item">
                     <a class="nav-link" href="#quotation-latest" role="tab" data-toggle="tab">{{trans('file.Quotation')}}</a>
                   </li> -->
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="#payment-latest" role="tab" data-toggle="tab">{{trans('file.Payment')}}</a>
-                  </li>
+                  </li> -->
                 </ul>
 
                 <div class="tab-content">
@@ -182,7 +182,7 @@
                               @else
                               <td><div class="badge badge-warning">{{trans('file.Draft')}}</div></td>
                               @endif
-                              <td>{{$sale->grand_total}}</td>
+                              <td>Rp. {{number_format($sale->grand_total,0,",",".")}}</td>
                             </tr>
                             @endforeach
                           </tbody>
@@ -220,7 +220,7 @@
                               @else
                               <td><div class="badge badge-danger">Ordered</div></td>
                               @endif
-                              <td>{{$purchase->grand_total}}</td>
+                              <td>Rp. {{number_format($purchase->grand_total,0,",",".")}}</td>
                             </tr>
                             @endforeach
                           </tbody>
@@ -250,7 +250,7 @@
                               @else
                               <td><div class="badge badge-success">Sent</div></td>
                               @endif
-                              <td>{{$quotation->grand_total}}</td>
+                              <td>Rp. {{number_format($quotation->grand_total,0,",",".")}}</td>
                             </tr>
                             @endforeach
                           </tbody>
