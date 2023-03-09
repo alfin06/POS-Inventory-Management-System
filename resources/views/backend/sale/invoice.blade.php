@@ -166,13 +166,13 @@
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2"><b>Catatan:</b></td>
                     <td style="width:30%;text-align:right;"><b>JUMLAH</b></td>
-                    <td style="width:30%;">{{number_format($lims_sale_data->total_price, 0, ',', '.')}}</td>
+                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->total_price, 0, ',', '.')}}</td>
                 </tr>
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2">Barang yang sudah dibeli tidak boleh ditukar/dikembalikan</td>
                     <td style="width:30%;text-align:right;"><b>DISC.</b></td>
                     @if($lims_sale_data->order_discount)
-                    <td style="width:30%;">{{number_format($lims_sale_data->order_discount, 0, ',', '.')}}</td>
+                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->order_discount, 0, ',', '.')}}</td>
                     @else
                     <td style="width:30%;">-</td>
                     @endif
@@ -181,7 +181,7 @@
                     <td style="width:10%;border:0;text-align:left;" colspan="2">kecuali ada perjanjian.</td>
                     <td style="width:30%;text-align:right;"><b>JUMLAH D.P.P</b></td>
                     @if($lims_sale_data->paid_amount)
-                    <td style="width:30%;">{{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}</td>
+                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}</td>
                     @else
                     <td style="width:30%;">-</td>
                     @endif
@@ -190,7 +190,7 @@
                     <td style="width:10%;text-align:left;" colspan="2"><b>Terbilang:</b></td>
                     <td style="width:30%;text-align:right;"><b>PPN (11%)</b></td>
                     @if($lims_sale_data->order_tax)
-                    <td style="width:30%;">{{number_format($lims_sale_data->order_tax, 0, ',', '.')}}</td>
+                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->order_tax, 0, ',', '.')}}</td>
                     @else
                     <td style="width:30%;">-</td>
                     @endif
@@ -198,7 +198,7 @@
                 <tr style="border:none;">
                     <td style="width:10%;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
                     <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
-                    <td style="width:30%;">{{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}</td>
+                    <td style="width:30%;">Rp. {{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>
