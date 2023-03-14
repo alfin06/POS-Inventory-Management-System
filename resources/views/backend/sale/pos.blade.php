@@ -935,11 +935,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <div class="search-box form-group">
-                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Scan/Search product by name/code" class="form-control"  />
+                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Search product by name/code" class="form-control"  />
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="table-responsive transaction-list">
