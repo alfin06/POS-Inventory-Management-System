@@ -42,7 +42,9 @@
         table {
             border-collapse: collapse;
         }
-        tr {border-bottom: 1px solid #ddd;}
+        tr {
+            border-bottom: 1px solid #ddd;
+        }
         td,th {padding: 0px 0;width: 50%;}
 
         table {width: 100%; }
@@ -113,9 +115,9 @@
         <table class="table-data">
             <thead>
                 <tr>
-                    <th style="width:10%;">BANYAKNYA</th>
-                    <th style="width:30%;">NAMA BARANG</th>
-                    <th style="width:30%;">HARGA</th>
+                    <th style="width:10%;border-right: 1px solid #ddd;">BANYAKNYA</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;">NAMA BARANG</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;">HARGA</th>
                     <th style="width:30%;">JUMLAH</th>
                 </tr>
             </thead>
@@ -144,9 +146,9 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;">{{$product_sale_data->qty}}</td>
-                    <td style="width:30%;">{!!$product_name!!}</td>
-                    <td style="width:30%;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
+                    <td style="width:10%;border-right: 1px solid #ddd;">{{$product_sale_data->qty}}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">{!!$product_name!!}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
                     <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
                 </tr>
                 @endforeach
@@ -154,9 +156,9 @@
                 while ($count <= 9) {
                 ?>
                 <tr>
-                    <td style="width:10%;">&nbsp;</td>
-                    <td style="width:30%;">&nbsp;</td>
-                    <td style="width:30%;">&nbsp;</td>
+                    <td style="width:10%;border-right: 1px solid #ddd;">&nbsp;</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">&nbsp;</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">&nbsp;</td>
                     <td style="width:30%;">&nbsp;</td>
                 </tr>
                 <?php
