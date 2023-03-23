@@ -202,15 +202,11 @@
                     <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
                     <td style="width:30%;">Rp. {{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}</td>
                 </tr>
-                <tr style="border:none;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
-                </tr>
-                <tr style="border:none;">
+                <tr style="border:none; margin-top:15px;">
                     <td colspan="2">Penerima,</td>
                     <td colspan="2">Hormat Kami,</td>
                 </tr>
-                <tr style="border:none;">
+                <tr style="border:none;margin-top:-50px;">
                     <td colspan="2">&nbsp;</td>
                     <td colspan="2">&nbsp;</td>
                 </tr>

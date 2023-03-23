@@ -156,7 +156,7 @@ return [
 	"Change Permission" => "Pengaturan Akses",
 	"Group Permission" => "Group Akses",
 	"Permissions" => "Akses",
-	"Percentage" => "Peratusan",
+	"Percentage" => "Persentase",
 	"Title" => "Nama",
 	"Base Unit" => "Unit Dasar",
 	"Operator" => "Pengendali",
