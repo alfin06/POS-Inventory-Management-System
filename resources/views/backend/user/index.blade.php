@@ -34,6 +34,7 @@
             </thead>
             <tbody>
                 @foreach($lims_user_list as $key=>$user)
+                @if($user->name != 'admin')
                 <tr data-id="{{$user->id}}">
                     <td>{{$key}}</td>
                     <td>{{ $user->name }}</td>
@@ -71,6 +72,7 @@
                         </div>
                     </td>
                 </tr>
+                @endif
                 @endforeach
             </tbody>
         </table>

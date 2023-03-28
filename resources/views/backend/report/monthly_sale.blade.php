@@ -43,27 +43,27 @@
 						        <td>
 						        	@if($discount > 0)
 							      	<strong>{{trans("file.Product Discount")}}</strong><br>
-							      	<span>{{$discount}}</span><br><br>
+							      	<span>Rp. {{number_format($discount,0,',','.')}}</span><br><br>
 							      	@endif
 							      	@if($order_discount[$key] > 0)
 							      	<strong>{{trans("file.Order Discount")}}</strong><br>
-							      	<span>{{$order_discount[$key]}}</span><br><br>
+							      	<span>Rp. {{number_format($order_discount[$key],0,',','.')}}</span><br><br>
 							      	@endif
 							      	@if($total_tax[$key] > 0)
 							      	<strong>{{trans("file.Product Tax")}}</strong><br>
-							      	<span>{{$total_tax[$key]}}</span><br><br>
+							      	<span>Rp. {{number_format($total_tax[$key],0,',','.')}}</span><br><br>
 							      	@endif
 							      	@if($order_tax[$key] > 0)
 							      	<strong>{{trans("file.Order Tax")}}</strong><br>
-							      	<span>{{$order_tax[$key]}}</span><br><br>
+							      	<span>Rp. {{number_format($order_tax[$key],0,',','.')}}</span><br><br>
 							      	@endif
 							      	@if($shipping_cost[$key] > 0)
 							      	<strong>{{trans("file.Shipping Cost")}}</strong><br>
-							      	<span>{{$shipping_cost[$key]}}</span><br><br>
+							      	<span>Rp. {{number_format($shipping_cost[$key],0,',','.')}}</span><br><br>
 							      	@endif
 							      	@if($total[$key] > 0)
 							      	<strong>{{trans("file.grand total")}}</strong><br>
-							      	<span>{{$total[$key]}}</span><br>
+							      	<span>Rp. {{number_format($total[$key],0,',','.')}}</span><br>
 							      	@endif
 						        </td>
 						        @endforeach

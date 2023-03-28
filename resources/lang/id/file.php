@@ -279,7 +279,7 @@ return [
 	"Sale Report" => "Laporan Jualan",
 	"Purchase Report" => "Laporan Pembelian",
 	"Payment Report" => "Laporan Pembayaran",
-	"Warehouse Stock Chart" => "Carta Saham Gudang",
+	"Warehouse Stock Chart" => "Stock Gudang",
 	"Product Quantity Alert" => "Alert Kuantiti Produk",
 	"Customer Report" => "Laporan Pelanggan",
 	"Supplier Report" => "Laporan Supplier",

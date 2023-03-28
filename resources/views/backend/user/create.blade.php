@@ -88,7 +88,9 @@
                                         <label><strong>{{trans('file.Role')}} *</strong></label>
                                         <select name="role_id" required class="selectpicker form-control" data-live-search="true" data-live-search-style="begins" title="Select Role...">
                                           @foreach($lims_role_list as $role)
+                                            @if($role->name != 'Customer' && $role->name != 'Admin')
                                               <option value="{{$role->id}}">{{$role->name}}</option>
+                                            @endif  
                                           @endforeach
                                         </select>
                                     </div>
