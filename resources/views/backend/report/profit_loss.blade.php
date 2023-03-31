@@ -31,11 +31,11 @@
                         <h3><i class="fa fa-heart"></i> {{trans('file.Purchase')}}</h3>
                         <hr>
                         <div class="mt-3">
-                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right"> {{number_format((float)$purchase[0]->grand_total, 2, '.', '') }}</span></p>
+                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right">Rp. {{number_format((float)$purchase[0]->grand_total, 0, ',', '.') }}</span></p>
                             <p class="mt-2">{{trans('file.Purchase')}} <span class="float-right">{{$total_purchase}}</span></p>
-                            <p class="mt-2">{{trans('file.Paid')}} <span class="float-right">{{number_format((float)$purchase[0]->paid_amount, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.Tax')}} <span class="float-right">{{number_format((float)$purchase[0]->tax, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.Discount')}} <span class="float-right">{{number_format((float)$purchase[0]->discount, 2, '.', '')}}</span></p>
+                            <p class="mt-2">{{trans('file.Paid')}} <span class="float-right">Rp. {{number_format((float)$purchase[0]->paid_amount, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.Tax')}} <span class="float-right">Rp. {{number_format((float)$purchase[0]->tax, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.Discount')}} <span class="float-right">Rp. {{number_format((float)$purchase[0]->discount, 0, ',', '.')}}</span></p>
                         </div>
                     </div>
                 </div>
@@ -47,15 +47,16 @@
                         <h3><i class="fa fa-shopping-cart"></i> {{trans('file.Sale')}}</h3>
                         <hr>
                         <div class="mt-3">
-                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right"> {{number_format((float)$sale[0]->grand_total, 2, '.', '') }}</span></p>
+                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right">Rp. {{number_format((float)$sale[0]->grand_total, 0, ',', '.') }}</span></p>
                             <p class="mt-2">{{trans('file.Sale')}} <span class="float-right">{{$total_sale}}</span></p>
-                            <p class="mt-2">{{trans('file.Paid')}} <span class="float-right">{{number_format((float)$sale[0]->paid_amount, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.Tax')}} <span class="float-right">{{number_format((float)$sale[0]->tax, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.Discount')}} <span class="float-right">{{number_format((float)$sale[0]->discount, 2, '.', '')}}</span></p>
+                            <p class="mt-2">{{trans('file.Paid')}} <span class="float-right">Rp. {{number_format((float)$sale[0]->paid_amount, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.Tax')}} <span class="float-right">Rp. {{number_format((float)$sale[0]->tax, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.Discount')}} <span class="float-right">Rp. {{number_format((float)$sale[0]->discount, 0, ',', '.')}}</span></p>
                         </div>
                     </div>
                 </div>
 			</div>
+            <!--
 			<div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -70,6 +71,8 @@
                     </div>
                 </div>
 			</div>
+            -->
+            <!--
 			<div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -84,6 +87,7 @@
                     </div>
                 </div>
 			</div>
+            -->
 		</div>
 		<div class="row mt-2">
 			<div class="col-md-4">
@@ -93,13 +97,14 @@
                         <h3><i class="fa fa-money"></i> {{trans('file.profit')}} / {{trans('file.Loss')}}</h3>
                         <hr>
                         <div class="mt-3">
-                            <p class="mt-2">{{trans('file.Sale')}} <span class="float-right">{{number_format((float)$sale[0]->grand_total, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.Product Cost')}} <span class="float-right">- {{number_format((float)$product_cost, 2, '.', '')}}</span></p>
-                            <p class="mt-2">{{trans('file.profit')}} <span class="float-right"> {{number_format((float)($sale[0]->grand_total - $product_cost), 2, '.', '') }}</span></p>
+                            <p class="mt-2">{{trans('file.Sale')}} <span class="float-right">Rp. {{number_format((float)$sale[0]->grand_total, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.Product Cost')}} <span class="float-right">Rp. - {{number_format((float)$product_cost, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">{{trans('file.profit')}} <span class="float-right">Rp. {{number_format((float)($sale[0]->grand_total - $product_cost), 0, ',', '.') }}</span></p>
                         </div>
                     </div>
                 </div>
 			</div>
+            <!--
 			<div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -116,6 +121,8 @@
                     </div>
                 </div>
 			</div>
+            -->
+            <!--
 			<div class="col-md-4">
                 <div class="card">
                     <div class="card-body">
@@ -129,6 +136,7 @@
                     </div>
                 </div>
 			</div>
+            -->
 		</div>
 		<div class="row mt-2">
 			<div class="col-md-3">
@@ -138,18 +146,19 @@
                         <h3><i class="fa fa-dollar"></i> {{trans('file.Payment Recieved')}}</h3>
                         <hr>
                         <div class="mt-3">
-                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right"> {{number_format((float)$payment_recieved, 2, '.', '') }}</span></p>
+                            <p class="mt-2">{{trans('file.Amount')}} <span class="float-right">Rp. {{number_format((float)$payment_recieved, 0, ',', '.') }}</span></p>
                             <p class="mt-2">{{trans('file.Recieved')}} <span class="float-right">{{$payment_recieved_number}}</span></p>
-                            <p class="mt-2">Cash <span class="float-right">{{number_format((float)$cash_payment_sale, 2, '.', '')}}</span></p>
-                            <p class="mt-2">Cheque <span class="float-right">{{number_format((float)$cheque_payment_sale, 2, '.', '')}}</span></p>
-                            <p class="mt-2">Credit Card <span class="float-right">{{number_format((float)$credit_card_payment_sale, 2, '.', '')}}</span></p>
-                            <p class="mt-2">Gift Card <span class="float-right">{{number_format((float)$gift_card_payment_sale, 2, '.', '')}}</span></p>
-                            <p class="mt-2">Paypal <span class="float-right">{{number_format((float)$paypal_payment_sale, 2, '.', '')}}</span></p>
-                            <p class="mt-2">Deposit <span class="float-right">{{number_format((float)$deposit_payment_sale, 2, '.', '')}}</span></p>
+                            <p class="mt-2">Cash <span class="float-right">Rp. {{number_format((float)$cash_payment_sale, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">Cheque <span class="float-right">Rp. {{number_format((float)$cheque_payment_sale, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">Credit Card <span class="float-right">Rp. {{number_format((float)$credit_card_payment_sale, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">Gift Card <span class="float-right">Rp. {{number_format((float)$gift_card_payment_sale, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">Paypal <span class="float-right">Rp. {{number_format((float)$paypal_payment_sale, 0, ',', '.')}}</span></p>
+                            <p class="mt-2">Deposit <span class="float-right">Rp. {{number_format((float)$deposit_payment_sale, 0, ',', '.')}}</span></p>
                         </div>
                     </div>
                 </div>
 			</div>
+            <!--
 			<div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -166,6 +175,8 @@
                     </div>
                 </div>
 			</div>
+            -->
+            <!--
 			<div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -179,6 +190,8 @@
                     </div>
                 </div>
 			</div>
+            -->
+            <!--
 			<div class="col-md-3">
                 <div class="card">
                     <div class="card-body">
@@ -192,7 +205,9 @@
                     </div>
                 </div>
 			</div>
+            -->
 		</div>
+        <!--
 		<div class="row mt-2">
 			<div class="col-md-4 offset-md-4">
                 <div class="card">
@@ -213,6 +228,8 @@
                 </div>
 			</div>
 		</div>
+        -->
+        <!--
 		<div class="row mt-2">
 			@foreach($warehouse_name as $key => $name)
 				<div class="col-md-4">
@@ -237,6 +254,7 @@
 				</div>
 			@endforeach
 		</div>
+        -->
 	</div>
 </section>
 
