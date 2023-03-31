@@ -107,6 +107,8 @@
             <?php 
                 $ref = explode("-", $lims_sale_data->reference_no);
                 echo $ref[0];
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo $lims_sale_data->staff_note;
             ?>
             </h2>
         </div>
