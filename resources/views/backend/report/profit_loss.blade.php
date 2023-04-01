@@ -149,10 +149,14 @@
                             <p class="mt-2">{{trans('file.Amount')}} <span class="float-right">Rp. {{number_format((float)$payment_recieved, 0, ',', '.') }}</span></p>
                             <p class="mt-2">{{trans('file.Recieved')}} <span class="float-right">{{$payment_recieved_number}}</span></p>
                             <p class="mt-2">Cash <span class="float-right">Rp. {{number_format((float)$cash_payment_sale, 0, ',', '.')}}</span></p>
+                            <!--
                             <p class="mt-2">Cheque <span class="float-right">Rp. {{number_format((float)$cheque_payment_sale, 0, ',', '.')}}</span></p>
-                            <p class="mt-2">Credit Card <span class="float-right">Rp. {{number_format((float)$credit_card_payment_sale, 0, ',', '.')}}</span></p>
+                            -->
+                            <p class="mt-2">Debit/Credit Card <span class="float-right">Rp. {{number_format((float)$credit_card_payment_sale, 0, ',', '.')}}</span></p>
+                            <!--
                             <p class="mt-2">Gift Card <span class="float-right">Rp. {{number_format((float)$gift_card_payment_sale, 0, ',', '.')}}</span></p>
                             <p class="mt-2">Paypal <span class="float-right">Rp. {{number_format((float)$paypal_payment_sale, 0, ',', '.')}}</span></p>
+                            -->
                             <p class="mt-2">Deposit <span class="float-right">Rp. {{number_format((float)$deposit_payment_sale, 0, ',', '.')}}</span></p>
                         </div>
                     </div>
