@@ -98,7 +98,7 @@
         <div style="text-align:left;">
             <div style="float:right;">
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
-                <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
+                <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->name}}</p>
             </div>
             <h2>CV. HPL Indonesia</h2>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
@@ -109,15 +109,17 @@
             <?php 
                 $ref = explode("-", $lims_sale_data->reference_no);
                 echo $ref[0];
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo $lims_sale_data->staff_note;
             ?>
             </h2>
         </div>
         <table class="table-data">
             <thead>
                 <tr>
-                    <th style="width:10%;border-right: 1px solid #ddd;">BANYAKNYA</th>
-                    <th style="width:30%;border-right: 1px solid #ddd;">NAMA BARANG</th>
-                    <th style="width:30%;border-right: 1px solid #ddd;">HARGA</th>
+                    <th style="width:10%;border-right: 1px solid #ddd;font-size:6pt;">BANYAKNYA</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">NAMA BARANG</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">HARGA</th>
                     <th style="width:30%;">JUMLAH</th>
                 </tr>
             </thead>
@@ -146,10 +148,10 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;border-right: 1px solid #ddd;">{{$product_sale_data->qty}}</td>
-                    <td style="width:30%;border-right: 1px solid #ddd;">{!!$product_name!!}</td>
-                    <td style="width:30%;border-right: 1px solid #ddd;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
-                    <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
+                    <td style="width:10%;border-right: 1px solid #ddd;font-size:6pt;">{{$product_sale_data->qty}}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">{!!$product_name!!}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
+                    <td style="width:30%;font-size:6pt;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
                 </tr>
                 @endforeach
                 <?php 
@@ -165,50 +167,43 @@
                 $count++;
                 }
                 ?>
-                <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2"><b>Catatan:</b></td>
-                    <td style="width:30%;text-align:right;"><b>JUMLAH</b></td>
-                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->total_price, 0, ',', '.')}}</td>
-                </tr>
-                <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2">Barang yang sudah dibeli tidak boleh ditukar/dikembalikan</td>
-                    <td style="width:30%;text-align:right;"><b>DISC.</b></td>
-                    @if($lims_sale_data->order_discount)
-                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->order_discount, 0, ',', '.')}}</td>
-                    @else
-                    <td style="width:30%;">-</td>
-                    @endif
-                </tr>
-                <tr style="border:none;">
-                    <td style="width:10%;border:0;text-align:left;" colspan="2">kecuali ada perjanjian.</td>
-                    <td style="width:30%;text-align:right;"><b>JUMLAH D.P.P</b></td>
-                    @if($lims_sale_data->paid_amount)
-                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}</td>
-                    @else
-                    <td style="width:30%;">-</td>
-                    @endif
-                </tr>
-                <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2"><b>Terbilang:</b></td>
-                    <td style="width:30%;text-align:right;"><b>PPN (11%)</b></td>
-                    @if($lims_sale_data->order_tax)
-                    <td style="width:30%;">Rp. {{number_format($lims_sale_data->order_tax, 0, ',', '.')}}</td>
-                    @else
-                    <td style="width:30%;">-</td>
-                    @endif
-                </tr>
-                <tr style="border:none;">
-                    <td style="width:10%;text-align:left;" colspan="2">{{str_replace("-"," ",$numberInWords)}} rupiah</td>
-                    <td style="width:30%;text-align:right;"><b>TOTAL</b></td>
-                    <td style="width:30%;">Rp. {{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}</td>
+                <tr style="border:none;padding-bottom:0;">
+                    <td style="width:10%;text-align:left;font-size:6pt;" colspan="2">
+                        <b>Catatan:</b><br/>
+                        Barang yang sudah dibeli tidak boleh ditukar/dikembalikan kecuali ada perjanjian.<br/>
+                        <b>Terbilang:</b><br/>
+                        {{str_replace("-"," ",$numberInWords)}} rupiah
+                    </td>
+                    <td style="width:30%;text-align:right;font-size:6pt;">
+                        <b>JUMLAH</b><br/>
+                        <b>DISC.</b><br/>
+                        <b>JUMLAH D.P.P</b><br/>
+                        <b>PPN (11%)</b><br/>
+                        <b>TOTAL</b>
+                    </td>
+                    <td style="width:30%;font-size:6pt;">
+                        Rp. {{number_format($lims_sale_data->total_price, 0, ',', '.')}}<br/>
+                        <?php if($lims_sale_data->order_discount) { ?>
+                        Rp. {{number_format($lims_sale_data->order_discount, 0, ',', '.')}}
+                        <?php } else { ?>
+                        -
+                        <?php } ?><br/>
+                        <?php if($lims_sale_data->paid_amount) { ?>
+                        Rp. {{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}
+                        <?php } else { ?>
+                        -
+                        <?php } ?><br/>
+                        <?php if($lims_sale_data->order_tax) { ?>
+                        Rp. {{number_format($lims_sale_data->order_tax, 0, ',', '.')}}
+                        <?php } else { ?>
+                        -
+                        <?php } ?><br/>
+                        Rp. {{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}
+                    </td>
                 </tr>
                 <tr style="border:none; margin-top:15px;">
                     <td colspan="2">Penerima,</td>
                     <td colspan="2">Hormat Kami,</td>
-                </tr>
-                <tr style="border:none;margin-top:-50px;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>
