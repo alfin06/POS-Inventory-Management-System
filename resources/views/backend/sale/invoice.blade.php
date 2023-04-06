@@ -181,7 +181,7 @@
                         <b>PPN (11%)</b><br/>
                         <b>TOTAL</b>
                     </td>
-                    <td style="width:30%;font-size:6pt;">
+                    <td style="width:30%;font-size:9pt;">
                         Rp. {{number_format($lims_sale_data->total_price, 0, ',', '.')}}<br/>
                         <?php if($lims_sale_data->order_discount) { ?>
                         Rp. {{number_format($lims_sale_data->order_discount, 0, ',', '.')}}
