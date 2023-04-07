@@ -13,7 +13,7 @@
         * {
             font-size: 8pt;
             line-height: 12px;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Arial', sans-serif;
             text-transform: capitalize;
         }
         .btn {
@@ -117,9 +117,9 @@
         <table class="table-data">
             <thead>
                 <tr>
-                    <th style="width:10%;border-right: 1px solid #ddd;font-size:6pt;">BANYAKNYA</th>
-                    <th style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">NAMA BARANG</th>
-                    <th style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">HARGA</th>
+                    <th style="width:10%;border-right: 1px solid #ddd;">BANYAKNYA</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;">NAMA BARANG</th>
+                    <th style="width:30%;border-right: 1px solid #ddd;">HARGA</th>
                     <th style="width:30%;">JUMLAH</th>
                 </tr>
             </thead>
@@ -148,10 +148,10 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;border-right: 1px solid #ddd;font-size:6pt;">{{$product_sale_data->qty}}</td>
-                    <td style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">{!!$product_name!!}</td>
-                    <td style="width:30%;border-right: 1px solid #ddd;font-size:6pt;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
-                    <td style="width:30%;font-size:6pt;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
+                    <td style="width:10%;border-right: 1px solid #ddd;">{{$product_sale_data->qty}}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">{!!$product_name!!}</td>
+                    <td style="width:30%;border-right: 1px solid #ddd;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
+                    <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
                 </tr>
                 @endforeach
                 <?php 
@@ -168,20 +168,20 @@
                 }
                 ?>
                 <tr style="border:none;padding-bottom:0;">
-                    <td style="width:10%;text-align:left;font-size:6pt;" colspan="2">
-                        <b>Catatan:</b><br/>
+                    <td style="width:10%;text-align:left;" colspan="2">
+                        Catatan:<br/>
                         Barang yang sudah dibeli tidak boleh ditukar/dikembalikan kecuali ada perjanjian.<br/>
-                        <b>Terbilang:</b><br/>
+                        Terbilang:<br/>
                         {{str_replace("-"," ",$numberInWords)}} rupiah
                     </td>
-                    <td style="width:30%;text-align:right;font-size:6pt;">
-                        <b>JUMLAH</b><br/>
-                        <b>DISC.</b><br/>
-                        <b>JUMLAH D.P.P</b><br/>
-                        <b>PPN (11%)</b><br/>
-                        <b>TOTAL</b>
+                    <td style="width:30%;text-align:right;">
+                        JUMLAH<br/>
+                        DISC.<br/>
+                        JUMLAH D.P.P<br/>
+                        PPN (11%)<br/>
+                        TOTAL
                     </td>
-                    <td style="width:30%;font-size:9pt;">
+                    <td style="width:30%;">
                         Rp. {{number_format($lims_sale_data->total_price, 0, ',', '.')}}<br/>
                         <?php if($lims_sale_data->order_discount) { ?>
                         Rp. {{number_format($lims_sale_data->order_discount, 0, ',', '.')}}
@@ -204,10 +204,6 @@
                 <tr style="border:none; margin-top:15px;">
                     <td colspan="2">Penerima,</td>
                     <td colspan="2">Hormat Kami,</td>
-                </tr>
-                <tr style="border:none;">
-                    <td colspan="2">&nbsp;</td>
-                    <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>
