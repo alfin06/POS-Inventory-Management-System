@@ -152,7 +152,7 @@
                 </tr>
                 @endforeach
                 <?php 
-                while ($count <= 9) {
+                while ($count <= 8) {
                 ?>
                 <tr>
                     <td style="width:10%;">&nbsp;</td>

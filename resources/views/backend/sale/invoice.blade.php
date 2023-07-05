@@ -188,11 +188,8 @@
                         <?php } else { ?>
                         -
                         <?php } ?><br/>
-                        <?php if($lims_sale_data->paid_amount) { ?>
-                        Rp. {{number_format($lims_sale_data->paid_amount, 0, ',', '.')}}
-                        <?php } else { ?>
-                        -
-                        <?php } ?><br/>
+                        Rp. {{number_format(($lims_sale_data->total_price - $lims_sale_data->order_discount), 0, ',', '.')}}
+                        <br/>
                         <?php if($lims_sale_data->order_tax) { ?>
                         Rp. {{number_format($lims_sale_data->order_tax, 0, ',', '.')}}
                         <?php } else { ?>
