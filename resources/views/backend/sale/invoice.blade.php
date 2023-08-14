@@ -11,8 +11,8 @@
 
     <style type="text/css">
         * {
-            font-size: 8pt;
-            line-height: 12px;
+            font-size: 12pt;
+            line-height: 20px;
             font-family: 'Arial', sans-serif;
             text-transform: capitalize;
         }
@@ -58,8 +58,8 @@
 
         @media print {
             * {
-                font-size:8pt;
-                line-height: 12px;
+                font-size:12pt;
+                line-height: 20px;
             }
             td,th {padding: 5px 0;}
             .hidden-print {
@@ -100,7 +100,7 @@
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->name}}</p>
             </div>
-            <h2>CV. HPL Indonesia</h2>
+            <h1>CV. HPL Indonesia</h1>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>
@@ -141,6 +141,7 @@
                     }
                     else
                         $product_name = $lims_product_data->name;
+                        $unit_name = \App\Unit::find($lims_product_data->unit_id);
 
                     if($product_sale_data->imei_number) {
                         $product_name .= '<br>'.trans('IMEI or Serial Numbers').': '.$product_sale_data->imei_number;
@@ -148,7 +149,7 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;border-right: 1px solid #ddd;">{{$product_sale_data->qty}}</td>
+                    <td style="width:10%;border-right: 1px solid #ddd;">{{$product_sale_data->qty.' '.$unit_name->unit_code}}</td>
                     <td style="width:30%;border-right: 1px solid #ddd;">{!!$product_name!!}</td>
                     <td style="width:30%;border-right: 1px solid #ddd;">{{number_format(($product_sale_data->total / $product_sale_data->qty), 0, ',', '.')}}</td>
                     <td style="width:30%;">{{number_format($product_sale_data->total, 0, ',', '.')}}</td>
@@ -198,9 +199,17 @@
                         Rp. {{number_format(($lims_sale_data->grand_total), 0, ',', '.')}}
                     </td>
                 </tr>
+                <tr style="border:none;">
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
+                </tr>
                 <tr style="border:none; margin-top:15px;">
                     <td colspan="2">Penerima,</td>
                     <td colspan="2">Hormat Kami,</td>
+                </tr>
+                <tr style="border:none;">
+                    <td colspan="2">&nbsp;</td>
+                    <td colspan="2">&nbsp;</td>
                 </tr>
                 <tr style="border:none;">
                     <td colspan="2">&nbsp;</td>

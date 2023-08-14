@@ -11,8 +11,8 @@
 
     <style type="text/css">
         * {
-            font-size: 8pt;
-            line-height: 12px;
+            font-size: 12pt;
+            line-height: 20px;
             font-family: 'Ubuntu', sans-serif;
             text-transform: capitalize;
         }
@@ -56,8 +56,8 @@
 
         @media print {
             * {
-                font-size:8pt;
-                line-height: 12px;
+                font-size:12pt;
+                line-height: 20px;
             }
             td,th {padding: 5px 0;}
             .hidden-print {
@@ -98,7 +98,7 @@
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
             </div>
-            <h2>BERKAT FURNITURE</h2>
+            <h1>BERKAT FURNITURE</h1>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>

@@ -11,8 +11,8 @@
 
     <style type="text/css">
         * {
-            font-size: 8pt;
-            line-height: 12px;
+            font-size: 12pt;
+            line-height: 20px;
             font-family: 'Ubuntu', sans-serif;
             text-transform: capitalize;
         }
@@ -56,8 +56,8 @@
 
         @media print {
             * {
-                font-size:8pt;
-                line-height: 12px;
+                font-size:12pt;
+                line-height: 20px;
             }
             td,th {padding: 5px 0;}
             .hidden-print {
@@ -98,7 +98,7 @@
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->company_name}}</p>
             </div>
-            <h2>CV. HPL Indonesia</h2>
+            <h1>CV. HPL Indonesia</h1>
             <p style="margin-top:-10px;">Ruko Fiera Graha Raya Boulevard FRB 12</p>
             <p style="margin-top:-10px;">Tel : 021-29861740</p>
         </div>
@@ -141,6 +141,7 @@
                     }
                     else
                         $product_name = $lims_product_data->name;
+                        $unit_name = \App\Unit::find($lims_product_data->unit_id);
 
                     if($product_sale_data->imei_number) {
                         $product_name .= '<br>'.trans('IMEI or Serial Numbers').': '.$product_sale_data->imei_number;
@@ -148,7 +149,7 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;">{{$product_sale_data->qty}}</td>
+                    <td style="width:10%;">{{$product_sale_data->qty.' '.$unit_name->unit_code}}</td>
                     <td style="width:45%;">{!!$product_name!!}</td>
                     <td style="width:45%;">&nbsp;</td>
                 </tr>
