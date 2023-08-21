@@ -171,9 +171,10 @@
                 <tr style="border:none;padding-bottom:0;">
                     <td style="width:10%;text-align:left;" colspan="2">
                         Catatan:<br/>
-                        Barang yang sudah dibeli tidak boleh ditukar/dikembalikan kecuali ada perjanjian.<br/>
+                        Barang yang sudah dibeli tidak boleh ditukar/dikembalikan kecuali ada perjanjian.<br/><br/>
                         Terbilang:<br/>
-                        {{str_replace("-"," ",$numberInWords)}} rupiah
+                        {{str_replace("-"," ",$numberInWords)}} rupiah<br/><br/>
+                        Rek. BCA: 547-557-8900 (CV HPL Indonesia)
                     </td>
                     <td style="width:30%;text-align:right;">
                         JUMLAH<br/>
