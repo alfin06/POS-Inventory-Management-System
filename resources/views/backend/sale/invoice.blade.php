@@ -96,7 +96,7 @@
         
     <div id="receipt-data">
         <div style="text-align:left;">
-            <div style="float:right;">
+            <div style="float:right;margin-right:15px;">
                 <p>Tangerang, {{date($general_setting->date_format, strtotime($lims_sale_data->created_at->toDateString()))}}</p>
                 <p style="margin-top:-10px;">Kepada Yth,<br/>{{$lims_customer_data->name}}</p>
             </div>
