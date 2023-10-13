@@ -107,6 +107,8 @@
             <?php 
                 $ref = explode("-", $lims_sale_data->reference_no);
                 echo $ref[0];
+                echo "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+                echo $lims_sale_data->staff_note;
             ?>
             </h2>
         </div>
@@ -139,6 +141,7 @@
                     }
                     else
                         $product_name = $lims_product_data->name;
+                        $unit_name = \App\Unit::find($lims_product_data->unit_id);
 
                     if($product_sale_data->imei_number) {
                         $product_name .= '<br>'.trans('IMEI or Serial Numbers').': '.$product_sale_data->imei_number;
@@ -146,7 +149,7 @@
                     $count++;
                 ?>
                 <tr>
-                    <td style="width:10%;">{{$product_sale_data->qty}}</td>
+                    <td style="width:10%;">{{$product_sale_data->qty.' '.$unit_name->unit_code}}</td>
                     <td style="width:45%;">{!!$product_name!!}</td>
                     <td style="width:45%;">&nbsp;</td>
                 </tr>
