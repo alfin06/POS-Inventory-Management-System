@@ -1107,8 +1107,8 @@ class SaleController extends Controller
             $data['payment_id'] = $lims_payment_data->id;
             if($paying_method == 'Credit Card'){
                 $lims_pos_setting_data = PosSetting::latest()->first();
-                Stripe::setApiKey($lims_pos_setting_data->stripe_secret_key);
-                $token = $data['stripeToken'];
+                // Stripe::setApiKey($lims_pos_setting_data->stripe_secret_key);
+                // $token = $data['stripeToken'];
                 $grand_total = $data['grand_total'];
 
                 $lims_payment_with_credit_card_data = PaymentWithCreditCard::where('customer_id', $data['customer_id'])->first();

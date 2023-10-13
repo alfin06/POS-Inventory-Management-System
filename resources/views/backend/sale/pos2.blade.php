@@ -935,11 +935,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-md-12">
+                                    <div class="col-md-12">
                                         <div class="search-box form-group">
-                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Scan/Search product by name/code" class="form-control"  />
+                                            <input type="text" name="product_code_name" id="lims_productcodeSearch" placeholder="Search product by name/code" class="form-control"  />
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="table-responsive transaction-list">
@@ -3435,7 +3435,7 @@ function creditCard() {
 
 function deposits() {
     if($('input[name="paid_amount"]').val() > deposit[$('#customer_id').val()]){
-        //alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
+        alert('Amount exceeds customer deposit! Customer deposit : '+ deposit[$('#customer_id').val()]);
     }
     $('input[name="cheque_no"]').attr('required', false);
     $('#add-payment select[name="gift_card_id_select"]').attr('required', false);
