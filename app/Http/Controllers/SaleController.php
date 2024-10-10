@@ -2252,7 +2252,7 @@ class SaleController extends Controller
         $imei_number = $data['imei_number'];
         $product_batch_id = $data['product_batch_id'];
         $product_code = $data['product_code'];
-        $product_variant_id = $data['product_variant_id'];
+        $product_variant_id = isset($data['product_variant_id'])?$data['product_variant_id']:null;
         $qty = $data['qty'];
         $sale_unit = $data['sale_unit'];
         $net_unit_price = $data['net_unit_price'];
